@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  background-image: url("https://wallpapercave.com/wp/PYwy6gH.jpg");
+  background-repeat: no-repeat;
+  background-position: fixed;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+  background-color: #282c34;
+  color: #fff;
+}
+
+nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav ul li {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+nav ul li:hover, nav ul a:hover {
+  color: #a19b9b;
+  -webkit-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+}
+
+.form-section {
+  text-align: center;
+  margin-top: 15vh;
+  max-width: 45vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-section form {
+  -webkit-backdrop-filter: blur(15px) sepia(0.2);
+          backdrop-filter: blur(15px) sepia(0.2);
+  border: 1px solid #cac4c4;
+  padding: 4rem;
+  max-width: 30vw;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  display: block;
+  -webkit-box-shadow: 4px 5px 10px #9c9b9b;
+          box-shadow: 4px 5px 10px #9c9b9b;
+}
+
+.form-section form input {
+  width: 15vw;
+  height: 3vh;
+}
+
+.form-section form input:focus {
+  outline: 1px solid #1acbfc;
+  border: none;
+}
+
+.form-section form button {
+  background-color: #1acbfc;
+  margin-top: 1rem;
+  color: #fff;
+  padding: 0.4rem;
+  width: 7rem;
+  outline: none;
+  border: none;
+}
+
+.form-section form button:hover {
+  background: #087897;
+  -webkit-transition: 0.5s all ease-in-out;
+  transition: 0.5s all ease-in-out;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+$color-primary: #282c34;
+$color-btn: #1acbfc;
+$color-accent: #fff;
+$color-background: rgb(224, 216, 216);
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Zen Kaku Gothic Antique',
+    sans-serif;
+    background-image: url('https://wallpapercave.com/wp/PYwy6gH.jpg');
+    background-repeat: no-repeat;
+    background-position: fixed;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: $color-primary;
+    color: $color-accent;
+
+    ul{
+       display: flex;
+       justify-content: space-between;
+      
+       li{
+           list-style: none;
+           padding-left: 1rem;
+       }
+       li:hover, a:hover{
+          color: rgb(161, 155, 155); 
+          transition: 0.5s all ease-in-out;
+       }
+    }
+}
+.form-section{
+text-align: center;
+margin-top: 15vh;
+max-width: 45vw;
+  margin-left: auto;
+  margin-right: auto;
+ 
+
+    form{
+       
+         backdrop-filter: blur(15px) sepia(.2);
+        
+            border: 1px solid rgb(202, 196, 196);
+            padding: 4rem;
+            max-width: 30vw;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+ display: block;
+ box-shadow:4px 5px 10px rgb(156, 155, 155);
+ input{
+     width: 15vw;
+     height: 3vh;
+ }
+ input:focus{
+     outline:1px solid #1acbfc;
+     border: none;
+ }
+
+ button{
+     background-color: $color-btn;
+     margin-top: 1rem;
+     color: $color-accent ;
+     padding: 0.4rem;
+     width: 7rem;
+     outline: none;
+     border: none;
+     
+ }
+
+ button:hover{
+     background: #087897;
+     transition: 0.5s all ease-in-out;
+ }
+
+    }
+   
+}
