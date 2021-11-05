@@ -14,7 +14,7 @@ $color-background: rgb(224, 216, 216);
 body{
     font-family: 'Zen Kaku Gothic Antique',
     sans-serif;
-    background-image: url('https://wallpapercave.com/wp/PYwy6gH.jpg');
+    background-image: url('https://images.pexels.com/photos/9025296/pexels-photo-9025296.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
     background-repeat: no-repeat;
     background-position: center center;
 background-size:cover;
@@ -51,7 +51,7 @@ max-width: 30rem;
 
     form{
        
-         backdrop-filter: blur(15px) sepia(.2);
+         backdrop-filter: blur(12px) sepia(.1);
         
             border: 1px solid rgb(202, 196, 196);
             padding: 4rem;
@@ -59,7 +59,7 @@ max-width: 30rem;
             margin-left: auto;
             margin-right: auto;
             border-radius: 10px;
-            color: rgb(49, 41, 41);
+            color: white;
  display: block;
  box-shadow:4px 5px 10px rgb(156, 155, 155);
  input{

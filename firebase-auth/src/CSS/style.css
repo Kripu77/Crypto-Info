@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Zen Kaku Gothic Antique', sans-serif;
-  background-image: url("https://wallpapercave.com/wp/PYwy6gH.jpg");
+  background-image: url("https://images.pexels.com/photos/9025296/pexels-photo-9025296.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -56,15 +56,15 @@ nav ul li:hover, nav ul a:hover {
 }
 
 .form-section form {
-  -webkit-backdrop-filter: blur(15px) sepia(0.2);
-          backdrop-filter: blur(15px) sepia(0.2);
+  -webkit-backdrop-filter: blur(12px) sepia(0.1);
+          backdrop-filter: blur(12px) sepia(0.1);
   border: 1px solid #cac4c4;
   padding: 4rem;
   max-width: 20rem;
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
-  color: #312929;
+  color: white;
   display: block;
   -webkit-box-shadow: 4px 5px 10px #9c9b9b;
           box-shadow: 4px 5px 10px #9c9b9b;
