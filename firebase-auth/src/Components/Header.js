@@ -11,6 +11,7 @@ const Header = () => {
                    <ul>
                        <li>Home</li>
                        <li>Sign in</li>
+                       <li> Sign Out </li>
                    </ul>
                </section>
            </nav>
