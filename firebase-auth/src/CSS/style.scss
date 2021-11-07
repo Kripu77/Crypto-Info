@@ -4,7 +4,7 @@ $color-btn: #1acbfc;
 $color-accent: #fff;
 $color-background: rgb(224, 216, 216);
 
-
+//reset default styling
 *{
     margin: 0;
     padding: 0;
@@ -20,6 +20,8 @@ body{
 background-size:cover;
 height: 100vh;
 }
+
+//navbar component
 nav{
     display: flex;
     justify-content: space-between;
@@ -41,6 +43,9 @@ nav{
        }
     }
 }
+
+
+//form component
 .form-section{
 text-align: center;
 margin-top: 15vh;
@@ -91,3 +96,6 @@ max-width: 30rem;
     }
    
 }
+
+
+
