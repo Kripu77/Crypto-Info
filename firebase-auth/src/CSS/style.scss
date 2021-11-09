@@ -12,7 +12,7 @@ $color-background: rgb(224, 216, 216);
 }
 
 body{
-    font-family: 'Zen Kaku Gothic Antique',
+    font-family: "Zen Kaku Gothic Antique",
     sans-serif;
     background-image: url('https://images.pexels.com/photos/9025296/pexels-photo-9025296.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
     background-repeat: no-repeat;
@@ -106,13 +106,27 @@ max-width: 30rem;
 
 
 //footer component
-
 footer{
-position: fixed;
-bottom: 0;
-left: 0;
-right: 0;
-background-color: $color-primary;
-color: $color-accent;
+    margin-top: 15rem;
+    background-color: $color-primary;
+    color: $color-accent;
+}
+
+//overflow will stop at 1540px
+.footer{
+
 padding: 1rem;
+display: flex;
+justify-content: space-around;
+max-width: 1540px;
+margin-left: auto;
+margin-right: auto;
+
+
+
+ul{
+    li{
+        list-style: none;
+    }
+}
 }
