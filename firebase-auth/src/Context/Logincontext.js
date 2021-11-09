@@ -30,7 +30,7 @@ useEffect(() => {
 
   return (
     <div>
-      <userContext.Provider value={{user, setUser}}>{Children}</userContext.Provider>
+      <userContext.Provider value={{user, setUser, signup}}>{Children}</userContext.Provider>
     </div>
   );
 };
