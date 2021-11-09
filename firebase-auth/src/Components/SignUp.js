@@ -23,19 +23,18 @@ const {signup} = useLoginContext();
         e.preventDefault();
 //check if password in both the same feild are same
 if(email && password && confirmPassword){
+console.log(email, password, confirmPassword)
 
-if (password !== confirmPassword) {
-  return setError("password does not match");
-}
-try {
-  setError("");
-  console.log(error);
-  setLoading(true);
-  await signup(email, password);
-} catch {
-  setError("failed to create account");
+if(password !== confirmPassword){
+        console.log("Please enter same value");
+   return setError(true);
+
 }
 
+signup(email, password)
+.then((resp)=>console.log(resp))
+.catch((err)=>console.log(err))
+.finally(()=>setError(false))
    
 }
 

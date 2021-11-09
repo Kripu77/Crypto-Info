@@ -1,19 +1,37 @@
 import React, {useState} from 'react'
+import { useLoginContext } from '../Context/Logincontext'
+import {useNavigate} from 'react-router-dom'
 
 const Form = () => {
+  const {login} = useLoginContext();
 const [email, setEmail] = useState('')
 
 const [ password, setPassword] = useState('')
 const [userData, setUserData] = useState([])
 
+//usehistory hook from react router dom has been replaced with useNaviagte in version 6
+
+const navigate = useNavigate();
+
 //handle submit fn
 const handleSubmit = (e)=>{
 
-    e.preventDefault();    
+    e.preventDefault();  
+    if(!email && !password){
+      console.log('enter a value')
+    }  
 
     if(email && password){
 const data= {id: new Date().getTime().toString(), email, password};
 setUserData([...userData,  data])
+
+login(email, password)
+.then((resp)=>{
+  console.log(resp)
+  navigate('/signup')
+})
+.catch((err)=>console.log(err))
+
 
 //set feild value empty once user enters credentials
 setEmail('')
