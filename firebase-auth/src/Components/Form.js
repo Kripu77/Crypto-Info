@@ -70,7 +70,7 @@ setPassword('')
         <div className="form-util">
           <p> Don't have an account?</p>
           <Link to="/signup"> Register Here!!</Link>
-          <br />
+          <br /> 
         </div>
         <div className="link-container">
           <button className="google" onClick={() => signInWithGoogle()
@@ -79,9 +79,9 @@ setPassword('')
             {" "}
             <FcGoogle />
           </button>
-          <button onClick= {()=>signInWithFacebook()} className="facebook">
+          {/* <button onClick= {()=>signInWithFacebook()} className="facebook">
             <BsFacebook />
-          </button>
+          </button> */}
         </div>
       </section>
     );
