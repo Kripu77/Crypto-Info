@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import { useLoginContext } from '../Context/Logincontext'
 import {useNavigate, Link} from 'react-router-dom'
+import { FcGoogle } from "react-icons/fc";
+import { BsFacebook } from "react-icons/bs";
 
 const Form = () => {
-  const {login} = useLoginContext();
+  const {login, signInWithGoogle} = useLoginContext();
 const [email, setEmail] = useState('')
 
 const [ password, setPassword] = useState('')
@@ -68,6 +70,16 @@ setPassword('')
         <div className="form-util">
           <p> Don't have an account?</p>
           <Link to="/signup"> Register Here!!</Link>
+          <br />
+        </div>
+        <div className="link-container">
+          <button className="google" onClick={() => signInWithGoogle()}>
+            {" "}
+            <FcGoogle />
+          </button>
+          <button className="facebook">
+            <BsFacebook />
+          </button>
         </div>
       </section>
     );

@@ -101,6 +101,7 @@ nav ul li:hover, nav ul a:hover {
 }
 
 .form-util {
+  display: block;
   padding: 1rem;
   color: white;
 }
@@ -115,6 +116,19 @@ nav ul li:hover, nav ul a:hover {
   border-bottom: 1px solid white;
   -webkit-transition: 0.3s all ease-in-out;
   transition: 0.3s all ease-in-out;
+}
+
+.link-container {
+  display: block;
+}
+
+.link-container .google, .link-container .facebook {
+  background-color: white;
+  outline: none;
+  border: none;
+  padding: 0.3rem;
+  width: 6rem;
+  margin: 1rem;
 }
 
 footer {

@@ -110,7 +110,7 @@ max-width: 20rem;
 //form util
 
 .form-util{
-   
+   display: block;
     padding: 1rem;
     color: white;
     a{
@@ -122,6 +122,23 @@ max-width: 20rem;
         border-bottom: 1px solid white;
         transition: 0.3s all ease-in-out;
     }
+}
+
+
+
+//external sign in link
+.link-container{
+    display: block;
+    .google, .facebook{
+         
+        background-color: white;
+        outline: none;
+        border: none;
+        padding: 0.3rem;
+        width: 6rem;
+        margin: 1rem;
+    }
+    
 }
 
 //footer component
