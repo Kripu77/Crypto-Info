@@ -41,6 +41,11 @@ nav ul li {
   padding-left: 1rem;
 }
 
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
 nav ul li:hover, nav ul a:hover {
   color: #a19b9b;
   -webkit-transition: 0.5s all ease-in-out;
@@ -94,5 +99,15 @@ nav ul li:hover, nav ul a:hover {
   background: #087897;
   -webkit-transition: 0.5s all ease-in-out;
   transition: 0.5s all ease-in-out;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #282c34;
+  color: #fff;
+  padding: 1rem;
 }
 /*# sourceMappingURL=style.css.map */

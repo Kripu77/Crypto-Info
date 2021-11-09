@@ -1,4 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-ReactDOM.render(<App/>, document.getElementById('root'));
+import {Logincontext} from "../src/Context/Logincontext"
+ReactDOM.render(
+<Logincontext Children={<App/>}/>, document.getElementById('root'));
