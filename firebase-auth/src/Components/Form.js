@@ -4,11 +4,21 @@ const Form = () => {
 const [email, setEmail] = useState('')
 
 const [ password, setPassword] = useState('')
+const [userData, setUserData] = useState([])
 
 //handle submit fn
 const handleSubmit = (e)=>{
 
     e.preventDefault();    
+
+    if(email && password){
+const data= {id: new Date().getTime().toString(), email, password};
+setUserData([...userData,  data])
+
+//set feild value empty once user enters credentials
+setEmail('')
+setPassword('')
+    }
 }
     return (
       <section className="form-section">
