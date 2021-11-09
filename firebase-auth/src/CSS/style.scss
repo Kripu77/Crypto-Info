@@ -73,9 +73,11 @@ max-width: 30rem;
             color: white;
  display: block;
  box-shadow:4px 5px 10px rgb(156, 155, 155);
- input{
-     max-width: 13rem;
-     height: 3vh;
+ button,input{
+   
+     height: 4vh;
+       width: 10rem;
+      
  }
  input:focus{
      outline:1px solid #1acbfc;
@@ -87,7 +89,7 @@ max-width: 30rem;
      margin-top: 1rem;
      color: $color-accent ;
      padding: 0.4rem;
-     width: 7rem;
+   
      outline: none;
      border: none;
      
@@ -110,6 +112,10 @@ footer{
     margin-top: 15rem;
     background-color: $color-primary;
     color: $color-accent;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 //overflow will stop at 1540px

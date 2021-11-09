@@ -75,9 +75,9 @@ nav ul li:hover, nav ul a:hover {
           box-shadow: 4px 5px 10px #9c9b9b;
 }
 
-.form-section form input {
-  max-width: 13rem;
-  height: 3vh;
+.form-section form button, .form-section form input {
+  height: 4vh;
+  width: 10rem;
 }
 
 .form-section form input:focus {
@@ -90,7 +90,6 @@ nav ul li:hover, nav ul a:hover {
   margin-top: 1rem;
   color: #fff;
   padding: 0.4rem;
-  width: 7rem;
   outline: none;
   border: none;
 }
@@ -105,6 +104,10 @@ footer {
   margin-top: 15rem;
   background-color: #282c34;
   color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .footer {

@@ -15,9 +15,7 @@ import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import Footer from "./Components/Footer";
 
-//firebase 
-import firebase from"firebase/app"
-import "firebase/auth"
+
 
 const App = () => {
 
