@@ -77,10 +77,11 @@ max-width: 30rem;
    
      height: 4vh;
        width: 14rem;
+       border-radius: 2px;
       
  }
  input:focus{
-     outline:1px solid #1acbfc;
+     outline:3px solid #1acbfc;
      border: none;
  }
 

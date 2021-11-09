@@ -1,6 +1,7 @@
 import React, {useContext,useState, useEffect} from 'react';
 
 //import auth module
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../Config/firebaseConfig';
 
 //createcontext
@@ -15,18 +16,18 @@ export const Logincontext = ({ Children }) => {
 //fn
 
 function signup(email, password){
-    return auth.createUserWithEmailAndPassword(email, password)
+    return createUserWithEmailAndPassword(email, password)
 }
 
 //useEffect to monitor to only runs once
 
-useEffect(() => {
-  const unsubscribe= auth.onAuthStateChanged((user) => {
-     setUser(user);
-   });
+// useEffect(() => {
+//   const unsubscribe= auth.onAuthStateChanged((user) => {
+//      setUser(user);
+//    });
 
-   return unsubscribe;
-}, [])
+//    return unsubscribe;
+// }, [])
 
   return (
     <div>

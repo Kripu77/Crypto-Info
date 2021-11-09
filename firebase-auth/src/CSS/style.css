@@ -78,10 +78,11 @@ nav ul li:hover, nav ul a:hover {
 .form-section form button, .form-section form input {
   height: 4vh;
   width: 14rem;
+  border-radius: 2px;
 }
 
 .form-section form input:focus {
-  outline: 1px solid #1acbfc;
+  outline: 3px solid #1acbfc;
   border: none;
 }
 

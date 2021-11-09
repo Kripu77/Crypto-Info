@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import { useLoginContext } from '../Context/Logincontext'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 
 
@@ -21,23 +22,23 @@ const {signup} = useLoginContext();
   async function handleSubmit(e){
         e.preventDefault();
 //check if password in both the same feild are same
+if(email && password && confirmPassword){
 
-if(password!== confirmPassword){
-
-    return setError('password does not match')
-
+if (password !== confirmPassword) {
+  return setError("password does not match");
 }
-try{
-    setError('')
-    console.log(error)
-    setLoading(true)
- await    signup(email, password);
-}
-catch{
-setError('failed to create account')
+try {
+  setError("");
+  console.log(error);
+  setLoading(true);
+  await signup(email, password);
+} catch {
+  setError("failed to create account");
 }
 
    
+}
+
 
     }
     return (
@@ -55,7 +56,7 @@ setError('failed to create account')
           <br />
           <label htmlFor="password"> Password </label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             value={password}
@@ -65,7 +66,7 @@ setError('failed to create account')
           <br />
           <label htmlFor="confirmPassword"> Confirm Password </label>
           <input
-            type="text"
+            type="password"
             id="confirmPassword"
             name="confirmPassword"
             value={confirmPassword}
@@ -73,7 +74,7 @@ setError('failed to create account')
           ></input>
           <br />
           <br />
-          <button disabled={loading}> Sign Up</button>
+          <button type="submit"> Sign Up</button>
         </form>
       </section>
     );
