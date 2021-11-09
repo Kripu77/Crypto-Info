@@ -1,7 +1,7 @@
 import React, {useContext,useState, useEffect} from 'react';
 
 //import auth module
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
 import { auth } from '../Config/firebaseConfig';
 
 //createcontext
@@ -36,6 +36,12 @@ export const Logincontext = ({ Children }) => {
 const provider = new GoogleAuthProvider()
 return signInWithPopup(auth, provider)
   }
+  
+  //facebook auth
+  function signInWithFaceBoook() {
+    const provider = new FacebookAuthProvider();
+    return signInWithPopup(auth, provider);
+  }
   // useEffect to monitor to only runs once
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -50,7 +56,7 @@ return signInWithPopup(auth, provider)
   return (
     <div>
       <userContext.Provider
-        value={{ user, setUser, signup, login, user, logOut, signInWithGoogle }}
+        value={{ user, setUser, signup, login, user, logOut, signInWithGoogle, signInWithFaceBoook }}
       >
         {Children}
       </userContext.Provider>

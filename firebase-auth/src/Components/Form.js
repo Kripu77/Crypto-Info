@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 
 const Form = () => {
-  const {login, signInWithGoogle} = useLoginContext();
+  const {login, signInWithGoogle, signInWithFacebook} = useLoginContext();
 const [email, setEmail] = useState('')
 
 const [ password, setPassword] = useState('')
@@ -73,11 +73,13 @@ setPassword('')
           <br />
         </div>
         <div className="link-container">
-          <button className="google" onClick={() => signInWithGoogle()}>
+          <button className="google" onClick={() => signInWithGoogle()
+          .then((resp)=>console.log(resp))
+          .catch((err)=>console.log(err))}>
             {" "}
             <FcGoogle />
           </button>
-          <button className="facebook">
+          <button onClick= {()=>signInWithFacebook()} className="facebook">
             <BsFacebook />
           </button>
         </div>
