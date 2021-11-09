@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useLoginContext } from '../Context/Logincontext'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
 
 const Form = () => {
   const {login} = useLoginContext();
@@ -28,7 +28,7 @@ setUserData([...userData,  data])
 login(email, password)
 .then((resp)=>{
   console.log(resp)
-  navigate('/signup')
+  navigate('/')
 })
 .catch((err)=>console.log(err))
 
@@ -65,6 +65,10 @@ setPassword('')
           <br />
           <button type="submit"> Log In</button>
         </form>
+        <div className="form-util">
+          <p> Don't have an account?</p>
+          <Link to="/signup"> Register Here!!</Link>
+        </div>
       </section>
     );
 }

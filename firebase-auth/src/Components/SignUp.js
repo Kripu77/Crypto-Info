@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { useLoginContext } from '../Context/Logincontext'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { Link } from 'react-router-dom'
 
 
 
@@ -34,7 +35,12 @@ if(password !== confirmPassword){
 signup(email, password)
 .then((resp)=>console.log(resp))
 .catch((err)=>console.log(err))
-.finally(()=>setError(false))
+.finally(()=>{setError(false)
+setConfirmPassword('')
+setEmail('')
+setPassword('')
+
+})
    
 }
 
@@ -75,6 +81,10 @@ signup(email, password)
           <br />
           <button type="submit"> Sign Up</button>
         </form>
+        <div className="form-util">
+            <p> Already a registered User?</p>
+            <Link to="/signin"> Sign In Here</Link>
+        </div>
       </section>
     );
 }

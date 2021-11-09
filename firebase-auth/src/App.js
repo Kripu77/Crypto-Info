@@ -14,6 +14,7 @@ import Error from "./Components/Error";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import Footer from "./Components/Footer";
+import Home from "./Components/Home";
 
 
 
@@ -25,7 +26,7 @@ const App = () => {
       <Router>
         <Header />
         <Routes>
-          <Route exact path="/" element={<Form/>}/>
+          <Route exact path="/" element={<Home/>}/>
           <Route path="/signup" element={<SignUp/>} />
           <Route path="/signin" element={<SignIn/>}/>          
           <Route path="*" element={<Error/>}/>

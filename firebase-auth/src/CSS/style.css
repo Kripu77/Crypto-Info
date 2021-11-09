@@ -55,38 +55,37 @@ nav ul li:hover, nav ul a:hover {
 .form-section {
   text-align: center;
   margin-top: 15vh;
-  max-width: 30rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.form-section form {
-  -webkit-backdrop-filter: blur(12px) sepia(0.1);
-          backdrop-filter: blur(12px) sepia(0.1);
-  border: 1px solid #cac4c4;
-  padding: 2rem;
   max-width: 20rem;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
-  color: white;
+  -webkit-backdrop-filter: blur(12px) sepia(0.1);
+          backdrop-filter: blur(12px) sepia(0.1);
+  border: 1px solid #cac4c4;
   display: block;
   -webkit-box-shadow: 4px 5px 10px #9c9b9b;
           box-shadow: 4px 5px 10px #9c9b9b;
+  border-radius: 10px;
 }
 
-.form-section form button, .form-section form input {
+.form-section form, .form-section .form-section {
+  padding: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+.form-section form button, .form-section form input, .form-section .form-section button, .form-section .form-section input {
   height: 4vh;
   width: 14rem;
   border-radius: 2px;
 }
 
-.form-section form input:focus {
+.form-section form input:focus, .form-section .form-section input:focus {
   outline: 3px solid #1acbfc;
   border: none;
 }
 
-.form-section form button {
+.form-section form button, .form-section .form-section button {
   background-color: #1acbfc;
   margin-top: 1rem;
   color: #fff;
@@ -95,20 +94,34 @@ nav ul li:hover, nav ul a:hover {
   border: none;
 }
 
-.form-section form button:hover {
+.form-section form button:hover, .form-section .form-section button:hover {
   background: #087897;
   -webkit-transition: 0.5s all ease-in-out;
   transition: 0.5s all ease-in-out;
 }
 
+.form-util {
+  padding: 1rem;
+  color: white;
+}
+
+.form-util a {
+  text-decoration: none;
+  color: white;
+  border-bottom: 1px solid transparent;
+}
+
+.form-util a:hover {
+  border-bottom: 1px solid white;
+  -webkit-transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out;
+}
+
 footer {
-  margin-top: 15rem;
+  margin-top: 7rem;
   background-color: #282c34;
   color: #fff;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  z-index: -1;
 }
 
 .footer {

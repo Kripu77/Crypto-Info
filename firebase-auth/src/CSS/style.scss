@@ -55,24 +55,25 @@ nav{
 .form-section{
 text-align: center;
 margin-top: 15vh;
-max-width: 30rem;
+max-width: 20rem;
   margin-left: auto;
   margin-right: auto;
- 
+    backdrop-filter: blur(12px) sepia(.1);
 
-    form{
-       
-         backdrop-filter: blur(12px) sepia(.1);
-        
-            border: 1px solid rgb(202, 196, 196);
-            padding:2rem;
-            max-width: 20rem;
-            margin-left: auto;
-            margin-right: auto;
-            border-radius: 10px;
-            color: white;
+    border: 1px solid rgb(202, 196, 196);
  display: block;
  box-shadow:4px 5px 10px rgb(156, 155, 155);
+  border-radius: 10px;
+    form, .form-section{
+       
+      
+            padding:2rem;
+ 
+            margin-left: auto;
+            margin-right: auto;
+           
+            color: white;
+
  button,input{
    
      height: 4vh;
@@ -106,17 +107,33 @@ max-width: 30rem;
    
 }
 
+//form util
 
+.form-util{
+   
+    padding: 1rem;
+    color: white;
+    a{
+        text-decoration: none;
+        color: white;
+        border-bottom: 1px solid transparent;
+    }
+    a:hover{
+        border-bottom: 1px solid white;
+        transition: 0.3s all ease-in-out;
+    }
+}
 
 //footer component
 footer{
-    margin-top: 15rem;
+    margin-top: 7rem;
     background-color: $color-primary;
     color: $color-accent;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
+    // position: fixed;
+    // bottom: 0;
+    // right: 0;
+    // left: 0;
+    z-index: -1;
 }
 
 //overflow will stop at 1540px

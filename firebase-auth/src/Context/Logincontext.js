@@ -1,7 +1,7 @@
 import React, {useContext,useState, useEffect} from 'react';
 
 //import auth module
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../Config/firebaseConfig';
 
 //createcontext
@@ -25,19 +25,26 @@ function signup(email, password){
 function login(email, password){
     return signInWithEmailAndPassword(auth, email, password);
 }
-//useEffect to monitor to only runs once
+// useEffect to monitor to only runs once
 
-// useEffect(() => {
-//   const unsubscribe= auth.onAuthStateChanged((user) => {
-//      setUser(user);
-//    });
+//fn for signout 
+function logOut(){
+    return signOut(auth)
 
-//    return unsubscribe;
-// }, [])
+}
+
+useEffect(() => {
+  const unsubscribe= onAuthStateChanged(auth, user => {
+     setUser(user);
+   });
+
+   return ()=>{ unsubscribe()};
+}, [])
+
 
   return (
     <div>
-      <userContext.Provider value={{user, setUser, signup, login}}>{Children}</userContext.Provider>
+      <userContext.Provider value={{user, setUser, signup, login, user, logOut}}>{Children}</userContext.Provider>
     </div>
   );
 };
