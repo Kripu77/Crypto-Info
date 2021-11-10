@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
 
 const Form = () => {
-  const {login, signInWithGoogle, signInWithFacebook} = useLoginContext();
+  const {login, signInWithGoogle, signInWithGit} = useLoginContext();
 const [email, setEmail] = useState('')
 
 const [ password, setPassword] = useState('')
@@ -79,9 +79,9 @@ setPassword('')
             {" "}
             <FcGoogle />
           </button>
-          {/* <button onClick= {()=>signInWithFacebook()} className="facebook">
+          <button onClick= {()=>signInWithGit()} className="facebook">
             <BsFacebook />
-          </button> */}
+          </button>
         </div>
       </section>
     );
