@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { useLoginContext } from '../Context/Logincontext'
 import {useNavigate, Link} from 'react-router-dom'
 import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 
 const Form = () => {
   const {login, signInWithGoogle, signInWithGit} = useLoginContext();
@@ -80,7 +80,7 @@ setPassword('')
             <FcGoogle />
           </button>
           <button onClick= {()=>signInWithGit()} className="facebook">
-            <BsFacebook />
+            <BsGithub/>
           </button>
         </div>
       </section>

@@ -131,6 +131,12 @@ nav ul li:hover, nav ul a:hover {
   margin: 1rem;
 }
 
+.link-container .google:hover, .link-container .facebook:hover {
+  background-color: #cabfbf;
+  -webkit-transition: 0.4s all ease-in-out;
+  transition: 0.4s all ease-in-out;
+}
+
 footer {
   margin-top: 7rem;
   background-color: #282c34;

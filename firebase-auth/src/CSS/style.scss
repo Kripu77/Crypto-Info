@@ -138,6 +138,11 @@ max-width: 20rem;
         width: 6rem;
         margin: 1rem;
     }
+
+    .google:hover, .facebook:hover{
+        background-color: rgb(202, 191, 191);
+        transition: 0.4s all ease-in-out;
+    }
     
 }
 

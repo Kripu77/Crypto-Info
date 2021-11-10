@@ -3,17 +3,24 @@ import React, {useContext,useState, useEffect} from 'react';
 //import auth module
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { auth } from '../Config/firebaseConfig';
+import useFetch from './useFetch';
 
 //createcontext
 const userContext = React.createContext();
-
+const url = "https://api.github.com/users";
 
 //export context
 
 export const Logincontext = ({ Children }) => {
   const [user, setUser] = useState(null); //has to  be null to check if the user is authenticated
-
+const [search, setSearch] = useState("");
   //fn for signup
+
+  //custom fetch hook
+
+const {error, loading, apiData}= useFetch(`${url}/${search}`)
+ console.log(apiData);
+
 
   function signup(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -65,7 +72,7 @@ return signInWithPopup(auth, provider)
   return (
     <div>
       <userContext.Provider
-        value={{ user, setUser, signup, login, user, logOut, signInWithGoogle, signInWithFaceBoook, signInWithGit }}
+        value={{ user, setUser, signup, login, user, logOut, signInWithGoogle, signInWithFaceBoook, signInWithGit, search, setSearch, apiData }}
       >
         {Children}
       </userContext.Provider>
