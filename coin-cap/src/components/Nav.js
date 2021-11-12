@@ -1,7 +1,10 @@
 import React from 'react'
 import { FiAlignCenter } from "react-icons/fi";
 import { Link } from 'react-router-dom';
+import { useLoginContext } from '../context/LoginInContext';
 const Nav = () => {
+
+    const{logOut} = useLoginContext();
     return (
       <nav>
         <section className="flex justify-between">
@@ -24,6 +27,9 @@ const Nav = () => {
             </button>
             <button className="hover:text-gray-200">
               <Link to="/home"> Home</Link>
+            </button>
+            <button className="hover:text-gray-200" onClick={()=>logOut()}>
+                Sign Out
             </button>
           </section>
         </section>

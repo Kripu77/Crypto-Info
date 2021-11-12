@@ -27,14 +27,12 @@ const LoginInContext = ({children}) => {
 
    //fn login
 
-   function logIn(email, password){
-
-    return signInWithEmailAndPassword(auth, email, password)
-
-   }
+ function login(email, password) {
+   return signInWithEmailAndPassword(auth, email, password);
+ }
 //sign out function
 
-function LogOut(){
+function logOut(){
     return signOut(auth)
 }
 
@@ -69,7 +67,7 @@ function errorFnF(){
 }
     return (
         <div>
-            <logInContextProvider.Provider value={{google, github, LogOut, logIn, signUp, signOut,error, errorFnF, errorFnT}}> 
+            <logInContextProvider.Provider value={{currentUser, google, github, logOut, login, signUp, signOut,error, errorFnF, errorFnT}}> 
                 {children}
             </logInContextProvider.Provider>
         </div>

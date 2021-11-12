@@ -1,15 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import LoginInContext, { useLoginContext } from '../context/LoginInContext';
-
+import "react-toastify/dist/ReactToastify.css";
 const Signin = () => {
 
+
+    //useNavigate from react-router
+
+    const naviagte = useNavigate();
     //manage state
 
     const [inputData, setInputData] = React.useState({email:"", password: ""})
+    const [loading, setLoading] = React.useState(false);
 console.log(useLoginContext());
 // context functions
-const {logIn, google, github} =  useLoginContext();
+const {login, google, github} =  useLoginContext();
 
 
     //to handle change in input
@@ -24,11 +30,42 @@ const {logIn, google, github} =  useLoginContext();
 
     //to handle submit
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (!inputData && inputData.password) {
+        toast.error("Please enter credentials");
+      }
 
-        e.preventDefault();
-    }
+      if (inputData.email && inputData.password) {
+        if (inputData.password.length < 6) {
+          toast.error("Password Does not Match");
+        } 
 
+        else {
+            setLoading(true)
+          login(inputData.email, inputData.password)
+            .then((resp) =>{ 
+                  console.log(resp)
+                //   navigate will push the user to home page once logged in
+                  naviagte('/home')})
+
+            .catch((err) => {
+                toast.error(`${err}`)
+                console.log(err)});
+        }
+      }
+    };
+//useffect to prevent infinite loading state
+
+React.useEffect(()=>{
+    const loadingState = setTimeout(()=>{
+        setLoading(false)
+    }, 1000)
+
+    //clean up function
+
+   return ()=>{clearInterval(loadingState)}
+}, [loading])
 
     return (
       <section className="mt-20 ml-auto mr-auto max-w-md mb-40 ">
@@ -46,6 +83,7 @@ const {logIn, google, github} =  useLoginContext();
             ></input>
           </div>
           <br />
+          <ToastContainer />
           <div className="flex flex-col">
             <label htmlFor="password"> Password</label>
             <input
@@ -53,7 +91,8 @@ const {logIn, google, github} =  useLoginContext();
               name="password"
               id="password"
               className="p-3 rounded  focus:outline-none focus:ring border"
-              value={inputData.password} onChange={handleChange}
+              value={inputData.password}
+              onChange={handleChange}
             ></input>
           </div>
           <div className="flex flex-col ">
@@ -61,7 +100,22 @@ const {logIn, google, github} =  useLoginContext();
               className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-32"
               type="submit"
             >
-              Sign In
+              {loading ? (
+                <svg
+                  className=" animate-spin
+      rounded-full
+      h-7
+      w-7
+      ml-auto
+      mr-auto
+      border-t-2 border-b-2 border-purple-500..."
+                  viewBox="0 0 24 24"
+                >
+                  {" "}
+                </svg>
+              ) : (
+                "Sign In"
+              )}
             </button>
             <div className="flex justify-between ">
               <h1> Not registered yet?</h1>
@@ -73,11 +127,17 @@ const {logIn, google, github} =  useLoginContext();
           <div className=" mt-8 text-center">
             <h1> Or</h1>
             <div className="flex flex-col p-2  ">
-              <button className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2" onClick={()=>google()}>
+              <button
+                className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
+                onClick={() => google()}
+              >
                 {" "}
                 Continue with Google
               </button>
-              <button className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded" onClick={()=>github()}>
+              <button
+                className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
+                onClick={() => github()}
+              >
                 {" "}
                 Continue with GitHub
               </button>
