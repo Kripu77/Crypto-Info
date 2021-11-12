@@ -29,7 +29,7 @@ const SignUp = () => {
           !signUpData.password &&
           !signUpData.confirmpassword
         ){
-toast.error("Please enter your details to proceed")
+           toast.error("Please enter your details to proceed")
         }
         //once data is added
           if (
@@ -79,7 +79,7 @@ toast.error("Please enter your details to proceed")
     React.useEffect(()=>{
         const loadingInterval = setTimeout(()=>{
             setLoading(false)
-            console.log("me")
+         
         }, 3000)
         return ()=>{clearInterval(loadingInterval)}
     }, [loading])
@@ -127,7 +127,7 @@ toast.error("Please enter your details to proceed")
             ></input>
           </div>
           <div className="text-center">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-32 transition ease-in duration-700 ...">
+            <button className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-60 transition ease-in duration-700 ...">
               {loading ? (
                 <svg
                   className=" animate-spin

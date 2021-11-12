@@ -97,7 +97,7 @@ React.useEffect(()=>{
           </div>
           <div className="flex flex-col ">
             <button
-              className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-32"
+              className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-60"
               type="submit"
             >
               {loading ? (
