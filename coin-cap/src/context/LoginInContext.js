@@ -47,7 +47,7 @@ function github(){
     return signInWithPopup(auth, provider)
 }
 
-//to monitor only once
+//to monitor only once when user is there or not //sign in sign out function
 React.useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);

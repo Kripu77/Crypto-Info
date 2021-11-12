@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginInContext';
 const Nav = () => {
 
-    const{logOut} = useLoginContext();
+    const{currentUser, logOut} = useLoginContext();
     return (
       <nav>
         <section className="flex justify-between">
@@ -19,18 +19,19 @@ const Nav = () => {
             </button>
           </section>
           <section className="flex space-x-7 text-lg ">
-            <button className="hover:text-gray-200">
+           {!currentUser && <button className="hover:text-gray-200">
               <Link to="/"> Sign In</Link>
-            </button>
-            <button className="hover:text-gray-200">
+            </button>}
+            {!currentUser &&<button className="hover:text-gray-200">
               <Link to="/signup"> Sign up</Link>
-            </button>
-            <button className="hover:text-gray-200">
+            </button>}
+           { currentUser && <button className="hover:text-gray-200">
               <Link to="/home"> Home</Link>
-            </button>
-            <button className="hover:text-gray-200" onClick={()=>logOut()}>
+            </button>}
+
+            { currentUser &&  <button className="hover:text-gray-200" onClick={()=>logOut()}>
                 Sign Out
-            </button>
+            </button> }
           </section>
         </section>
       </nav>
