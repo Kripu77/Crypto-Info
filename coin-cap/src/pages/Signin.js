@@ -7,6 +7,9 @@ const Signin = () => {
     //manage state
 
     const [inputData, setInputData] = React.useState({email:"", password: ""})
+console.log(useLoginContext());
+// context functions
+const {logIn, google, github} =  useLoginContext();
 
 
     //to handle change in input
@@ -70,11 +73,11 @@ const Signin = () => {
           <div className=" mt-8 text-center">
             <h1> Or</h1>
             <div className="flex flex-col p-2  ">
-              <button className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2">
+              <button className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2" onClick={()=>google()}>
                 {" "}
                 Continue with Google
               </button>
-              <button className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded">
+              <button className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded" onClick={()=>github()}>
                 {" "}
                 Continue with GitHub
               </button>
