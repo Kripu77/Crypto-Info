@@ -19,15 +19,18 @@ const Footer = () => {
               <li> CoinCap API</li>
             </ol>
           </section>
+
           <section>
             <h1> Connect with me Around the Web</h1>
             <section className="flex">
               <Links />
             </section>
           </section>
+
           <section>
-              <h1> Feel free to copy anything that you find useful.</h1>
-              <h2> If you require any additional help please ping me!!!!</h2>
+            <h1> Designed and Developed By Kripu Khadka @ 2021.</h1>
+            <h1> Feel free to copy anything that you find useful.</h1>
+            <h2> If you require any additional help please ping me!!!!</h2>
           </section>
         </section>
       </footer>
