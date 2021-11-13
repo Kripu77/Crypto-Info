@@ -3,8 +3,8 @@ import Links from './Links';
 
 const Footer = () => {
     return (
-      <footer className="bg-purple-600 text-white p-2 ">
-        <h1 className="text-center">
+      <footer className="bg-purple-600 text-white p-2 text-xl ">
+        <h1 className="text-center text-2xl">
           {" "}
           Crypto<span className="text-yellow-200">Info</span>
         </h1>
