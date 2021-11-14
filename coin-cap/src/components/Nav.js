@@ -32,7 +32,10 @@ const Nav = () => {
             </button>}
 
             { currentUser &&  <button className="hover:text-gray-200" onClick={()=>{logOut()
-            .then(()=>{navigate('/')})}}>
+            .then(()=>{
+              sessionStorage.clear()
+              navigate('/')
+              })}}>
                 Sign Out
             </button> }
           </section>

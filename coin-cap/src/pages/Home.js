@@ -5,7 +5,19 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const { currentUser, sendVerification } = useLoginContext();
 
- 
+ //Private Route to check if the token is present 
+const navigate = useNavigate();
+
+//useEffect to monitor it only runs once
+ React.useEffect(()=>{
+let authToken = sessionStorage.getItem('Auth Token')
+if(!authToken){
+    navigate('/')
+}
+if(authToken){
+    navigate('/home')
+}
+ },[])
 
   return (
     <div>
