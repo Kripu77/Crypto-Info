@@ -6,7 +6,9 @@ import {
   signInWithPopup,
   signOut,
   GoogleAuthProvider,
-  GithubAuthProvider
+  GithubAuthProvider,
+  sendSignInLinkToEmail,
+  sendEmailVerification
 } from "firebase/auth";
 import { auth } from "../config/firebaseConfig";
 const logInContextProvider = React.createContext();
@@ -46,6 +48,7 @@ function github(){
     const provider = new GithubAuthProvider();
     return signInWithPopup(auth, provider)
 }
+//sign in verfication email
 
 //to monitor only once when user is there or not //sign in sign out function
 React.useEffect(() => {
@@ -66,12 +69,26 @@ function errorFnF(){
     return setError(false)
 }
     return (
-        <div>
-            <logInContextProvider.Provider value={{currentUser, google, github, logOut, login, signUp, signOut,error, errorFnF, errorFnT}}> 
-                {children}
-            </logInContextProvider.Provider>
-        </div>
-    )
+      <div>
+        <logInContextProvider.Provider
+          value={{
+            currentUser,
+            google,
+            github,
+            logOut,
+            login,
+            signUp,
+            signOut,
+            error,
+            errorFnF,
+            errorFnT,
+            sendEmailVerification,
+          }}
+        >
+          {children}
+        </logInContextProvider.Provider>
+      </div>
+    );
 }
 
 

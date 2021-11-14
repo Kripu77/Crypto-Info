@@ -8,14 +8,16 @@ const Signin = () => {
 
     //useNavigate from react-router v6 has replaced useHistory with useNavigate
 
-    const naviagte = useNavigate();
+    const navigate = useNavigate();
     //manage state
 
     const [inputData, setInputData] = React.useState({email:"", password: ""})
     const [loading, setLoading] = React.useState(false);
 console.log(useLoginContext());
 // context functions
-const {login, google, github} =  useLoginContext();
+const { login, google, github } = useLoginContext();
+
+
 
 
     //to handle change in input
@@ -38,7 +40,7 @@ const {login, google, github} =  useLoginContext();
 
       if (inputData.email && inputData.password) {
         if (inputData.password.length < 6) {
-          toast.error("Password Does not Match");
+          toast.error("Please enter the correct password");
         } 
 
         else {
@@ -47,11 +49,14 @@ const {login, google, github} =  useLoginContext();
             .then((resp) =>{ 
                   console.log(resp)
                 //   navigate will push the user to home page once logged in
-                  naviagte('/home')})
+                  navigate('/home')})
 
             .catch((err) => {
-                toast.error(`${err}`)
-                console.log(err)});
+              if (err.code === "auth/user-not-found"){ toast.error(`User not found`);}
+
+              if (err.code === "auth/wrong-password"){
+                toast.error('Please enter the correct password')
+              } console.log(err);});
         }
       }
     };
@@ -129,14 +134,40 @@ React.useEffect(()=>{
             <div className="flex flex-col p-2  ">
               <button
                 className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
-                onClick={() => google()}
+                onClick={() => {
+                  google()
+                    .then((resp) => {
+                      console.log(resp);
+                      navigate("/home");
+                    })
+                    .catch((err) => {
+                      if (err.code === "auth/popup-closed-by-user") {
+                        toast.error(
+                          "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                        );
+                      }
+                    });
+                }}
               >
                 {" "}
                 Continue with Google
               </button>
               <button
                 className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
-                onClick={() => github()}
+                onClick={() =>
+                  github()
+                    .then((resp) => {
+                      navigate("/home");
+                    })
+                    .catch((err) => {
+                      if (err.code === "auth/popup-closed-by-user") {
+                        toast.error(
+                          "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                        );
+                      }
+                      console.error(err);
+                    })
+                }
               >
                 {" "}
                 Continue with GitHub

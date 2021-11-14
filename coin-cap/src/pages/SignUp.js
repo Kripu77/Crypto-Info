@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginInContext';
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,10 +11,11 @@ const SignUp = () => {
     //manage state
 
     const [signUpData, setSignUpData] = React.useState({email:"", password:"", confirmpassword:""})
-    const[error, setError] = React.useState(false);
+   
     const[loading, setLoading] = React.useState(false);
    
-
+//navigate from react-router
+const navigate = useNavigate();
 
     //from context provider
     const {google, github, signUp} = useLoginContext();
@@ -38,13 +39,13 @@ const SignUp = () => {
             signUpData.confirmpassword
           ) {
             //check if password is six characters long
-            if (signUpData.password.length < 6) {
-              toast.error("Password should to be at least six characters.");
-            }
+            // if (signUpData.password.length < 6) {
+            //   toast.error("Password should to be at least six characters.");
+            // }
 
             //check if passwords match
             if (signUpData.password !== signUpData.confirmpassword) {
-              console.log("pasword doesnot match");
+             
               toast.error("Password doesnot match.");
             }
 
@@ -57,8 +58,14 @@ const SignUp = () => {
                   toast.success("Thank you, Account Created");
                 })
                 .catch((err) => {
-                  console.log(err)
-                  toast.error(`${err}`);
+                  //error from weak password
+               if (err.code === "auth/weak-password"){
+                 toast.error(`Password has to be atleast 6 characters`);
+               } 
+               //error for email already in use
+               if (err.code === "auth/email-already-in-use"){
+                 toast.error('Email already-in-use, please choose a different email address!!')
+               } console.log(err);
                 });
 
               // setSignUpData({email:"", password:"", confirmpassword:"" })
@@ -157,14 +164,36 @@ const SignUp = () => {
               <div className="flex flex-col p-2  ">
                 <button
                   className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
-                  onClick={() => google()}
+                  onClick={() => {google()
+                  .then((resp)=>{console.log(resp)
+                  navigate('/home')})
+                  .catch((err)=>{
+                    if (err.code === "auth/popup-closed-by-user"){
+toast.error(
+  "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+);
+                    }
+                      
+                  })
+                }}
                 >
                   {" "}
                   Continue with Google
                 </button>
                 <button
                   className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
-                  onClick={() => github()}
+                  onClick={() => github()
+                  .then((resp)=>{navigate('/home')
+                })
+                .catch((err)=>{
+                  
+                  if (err.code === "auth/popup-closed-by-user"){
+                    toast.error(
+                      "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                    );
+                  }
+                    console.error(err);})
+                }
                 >
                   {" "}
                   Continue with GitHub
