@@ -24,6 +24,7 @@ const LoginInContext = ({children}) => {
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
     const[ data, setData] = React.useState([1,2,3,4]);
+    const [search, setSearch] = React.useState("");
 
 //fetch data from coincap api
 
@@ -104,6 +105,7 @@ function errorFnF(){
             errorFnF,
             errorFnT,
             sendEmailVerification,
+            search, setSearch,
             data, loading
           }}
         >

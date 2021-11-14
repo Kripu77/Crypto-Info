@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { useLoginContext } from "../context/LoginInContext";
 import "react-toastify/dist/ReactToastify.css";
+import Footer from "../components/Footer";
 const Signin = () => {
   //useNavigate from react-router v6 has replaced useHistory with useNavigate
 
@@ -86,6 +87,7 @@ if(!authToken){
   return (
     <section className="mt-20 ml-auto mr-auto max-w-md mb-40 ">
       <h1 className="text-2xl text-center"> Sign In</h1>
+       <section className="ml-auto mr-auto max-w-md mb-40">
       <form className="mt-5 text-lg" onSubmit={handleSubmit}>
         <div className="flex flex-col ">
           <label htmlFor="email"> Email</label>
@@ -164,13 +166,13 @@ if(!authToken){
                     "You closed the sigin method your preferred, please choose your prefer signin method to continue."
                   );
                 }
-                  if (
-                    err.code === "auth/account-exists-with-different-credential"
-                  ) {
-                    toast.error(
-                      "You already have a different account registered with this email."
-                    );
-                  }
+                if (
+                  err.code === "auth/account-exists-with-different-credential"
+                ) {
+                  toast.error(
+                    "You already have a different account registered with this email."
+                  );
+                }
               });
           }}
         >
@@ -182,7 +184,7 @@ if(!authToken){
           onClick={() =>
             github()
               .then((resp) => {
-                console.log(resp)
+                console.log(resp);
                 sessionStorage.setItem(
                   "Auth Token",
                   resp._tokenResponse.refreshToken
@@ -195,11 +197,13 @@ if(!authToken){
                     "You closed the sigin method your preferred, please choose your prefer signin method to continue."
                   );
                 }
-                
+
                 if (
                   err.code === "auth/account-exists-with-different-credential"
                 ) {
-                  toast.error('You already have a different account registered with this email.')
+                  toast.error(
+                    "You already have a different account registered with this email."
+                  );
                 }
                 console.error(err);
               })
@@ -209,6 +213,8 @@ if(!authToken){
           Continue with GitHub
         </button>
       </div>
+      </section>
+ <Footer/>
     </section>
   );
 };

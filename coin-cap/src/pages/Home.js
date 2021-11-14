@@ -3,6 +3,10 @@ import { useLoginContext } from "../context/LoginInContext";
 import { useNavigate } from "react-router-dom";
 import Slider from "../components/Slider";
 import Carousel from "../components/Slider";
+import Search from "../components/Search";
+import Table from "../components/Table";
+import Footer from "../components/Footer";
+
 
 const Home = () => {
   const { currentUser, sendVerification } = useLoginContext();
@@ -22,12 +26,12 @@ if(authToken){
  },[])
 
   return (
-    <main className="h-96  mb-20 text-center">
+    <main className="h-96  text-center mb-44 ">
       <div
-        className=" bg-fixed text-white min-h-full bg-cover w-max-content z-10"
+        className="bg-fixed text-white min-h-full bg-cover bg-no-repeat w-max-content"
         style={{
           backgroundImage: `url(
-            "https://images.pexels.com/photos/5980743/pexels-photo-5980743.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500")`,
+        https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1402&q=80)`,
         }}
       >
         <h2 className="text-5xl p-10 ">
@@ -41,7 +45,14 @@ if(authToken){
         </p>
         <Carousel />
       </div>
-      <section></section>
+      <section className="bg-gray-300 p-9 ">
+        <section className="max-w-screen-2xl ml-auto mr-auto">
+          <h1 className="text-3xl"> Live Status of Crypto Currency</h1>
+          <Search />
+          <Table />
+        </section>
+      </section>
+      <Footer />
     </main>
   );
 };

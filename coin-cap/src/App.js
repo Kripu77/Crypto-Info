@@ -24,7 +24,7 @@ const App = () => {
               <Route path="/signup" element={<SignUp/>}></Route>
               <Route path="*" element={<Error/>}></Route>
           </Routes>
-          <Footer/>
+         
         </Router>
       </div>
     );

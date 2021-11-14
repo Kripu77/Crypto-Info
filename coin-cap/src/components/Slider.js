@@ -29,13 +29,17 @@ const Carousel = () =>{
     const{id, name, image, market_data }= items;
     
     const {current_price} = market_data;
-    console.log(items)
+  
     return (
       <div key={id} className="table ml-auto mr-auto">
-        <img src={image.large} alt={name} className=" mt-20 w-20" />
+        <img
+          src={image.large}
+          alt={name}
+          className=" mt-20 w-20 cursor-pointer"
+        />
         <h1>
           {name} <br />
-          <span className="text-green-600">${current_price.aud}</span>
+          <span className="text-green-200">${current_price.aud}</span>
         </h1>
       </div>
     );
@@ -49,8 +53,8 @@ const Carousel = () =>{
     autoPlay
     autoPlayControls={false}
     autoPlayStrategy="none"
-    autoPlayInterval={2000}
-    animationDuration={3000}
+    autoPlayInterval={10}
+    animationDuration={5000}
     animationType="fadeout"
     infinite
     touchTracking={false}
