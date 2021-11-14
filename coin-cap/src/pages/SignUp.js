@@ -99,20 +99,18 @@ const SignUp = () => {
       clearInterval(loadingInterval);
     };
   }, [loading]);
-//useffect for private route for logged in user
+
 React.useEffect(() => {
   const authToken = sessionStorage.getItem("Auth Token");
   if (authToken) {
     navigate("/home");
   }
   if (!authToken) {
-    navigate("/");
+    navigate("/signup");
   }
 }, []);
-
-
   return (
-    <section className="text-lg mt-20  mt-20 ml-auto mr-auto max-w-md mb-40">
+    <section className="text-lg mt-20 ml-auto mr-auto max-w-md mb-40">
       <h1 className="text-2xl text-center"> Sign Up</h1>
       <form className="mt-5 text-lg " onSubmit={handleSubmit}>
         <div className="flex flex-col ">
@@ -179,49 +177,79 @@ React.useEffect(() => {
           </div>
           <div className=" mt-8">
             <h1> Or</h1>
-            <div className="flex flex-col p-2  ">
-              <button
-                className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
-                onClick={() => {
-                  google()
-                    .then((resp) => {
-                      console.log(resp);
-                      navigate("/home");
-                    })
-                    .catch((err) => {
-                      if (err.code === "auth/popup-closed-by-user") {
-                        toast.error(
-                          "You closed the sigin method your preferred, please choose your prefer signin method to continue."
-                        );
-                      }
-                    });
-                }}
-              >
-                {" "}
-                Continue with Google
-              </button>
-              <button
-                className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
-                onClick={() =>
-                  github()
-                    .then((resp) => {
-                      navigate("/home");
-                    })
-                    .catch((err) => {
-                      if (err.code === "auth/popup-closed-by-user") {
-                        toast.error(
-                          "You closed the sigin method your preferred, please choose your prefer signin method to continue."
-                        );
-                      }
-                      console.error(err);
-                    })
-                }
-              >
-                {" "}
-                Continue with GitHub
-              </button>
-            </div>
           </div>
+        </div>
+        <div className="flex flex-col p-2  ">
+          <button
+            type="click"
+            className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
+            onClick={() => {
+              google()
+                .then((resp) => {
+                  console.log(resp);
+              sessionStorage.setItem(
+                "Auth Token",
+                resp._tokenResponse.refreshToken
+              );
+                  navigate("/home");
+                })
+                .catch((err) => {
+                  if (err.code === "auth/popup-closed-by-user") {
+                    toast.error(
+                      "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                    );
+                  }
+                  if (
+                    err.code === "auth/account-exists-with-different-credential"
+                  ) {
+                    toast.error(
+                      "You already have a different account registered with this email."
+                    );
+                  }
+                });
+            }}
+          >
+            {" "}
+            Continue with Google
+          </button>
+          <button
+            className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
+            onClick={() =>
+              github()
+                .then((resp) => {
+                  console.log(resp);
+                 
+                  toast.success("Please wait you will be directed towards login page")
+                  sessionStorage.setItem(
+                    "Auth Token",
+                    resp._tokenResponse.refreshToken
+                  );
+                  setTimeout(()=>{
+navigate("/home");
+                  }, 4000)
+                  
+                })
+                .catch((err) => {
+                  if (err.code === "auth/popup-closed-by-user") {
+                    toast.error(
+                      "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                    );
+                  }
+
+                  if (
+                    err.code === "auth/account-exists-with-different-credential"
+                  ) {
+                    toast.error(
+                      "You already have a different account registered with this email."
+                    );
+                  }
+                  console.error(err);
+                })
+            }
+          >
+            {" "}
+            Continue with GitHub
+          </button>
         </div>
       </form>
     </section>

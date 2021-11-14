@@ -1,4 +1,6 @@
 import React, {useContext} from 'react'
+import axios from 'axios'
+
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -11,6 +13,7 @@ import {
   sendEmailVerification
 } from "firebase/auth";
 import { auth } from "../config/firebaseConfig";
+const url = "https://api.coingecko.com/api/v3/coins/";
 const logInContextProvider = React.createContext();
 //from firebase
 
@@ -20,6 +23,24 @@ const LoginInContext = ({children}) => {
     const [currentUser, setCurrentUser] = React.useState(null);
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
+    const[ data, setData] = React.useState([1,2,3,4]);
+
+//fetch data from coincap api
+
+const fetchData= ()=>{
+    axios.get(url)
+    .then((res)=>{setData(res.data)
+    setLoading(false)})
+}
+
+//useEffect
+React.useEffect(()=>{
+    fetchData()
+},[url])
+
+
+
+
 
 
     //fn createuser
@@ -83,6 +104,7 @@ function errorFnF(){
             errorFnF,
             errorFnT,
             sendEmailVerification,
+            data, loading
           }}
         >
           {children}

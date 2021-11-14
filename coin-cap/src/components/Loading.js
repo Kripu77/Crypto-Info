@@ -2,9 +2,9 @@ import React from 'react'
 
 const Loading = () => {
     return (
-      <main className="m-40">
-        <img src="https://cdn.dribbble.com/users/108390/screenshots/2882839/spinner-loop.gif"></img>
-      </main>
+      <div class="flex items-center justify-center mt-52">
+        <div class="w-40 h-40 border-t-4 border-b-4 border-purple-900 rounded-full animate-spin"></div>
+      </div>
     );
 }
 

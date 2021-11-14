@@ -7,8 +7,13 @@ import SignUp from './pages/SignUp';
 import Error from './components/Error';
 import Footer from './components/Footer';
 import { useLoginContext } from './context/LoginInContext';
+import Loading from './components/Loading';
 
 const App = () => {
+  const {loading} =useLoginContext()
+  if(loading){
+   return <Loading/>
+  }
     return (
       <div>
         <Router>

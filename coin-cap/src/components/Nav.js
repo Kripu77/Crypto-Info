@@ -13,7 +13,7 @@ const Nav = () => {
           <section className=" flex flex-row justify-between">
             <h1>
               {" "}
-              Crytpo<span className="text-yellow-300">Info</span>
+              Crypto<span className="text-yellow-300">Info</span>
             </h1>
             <button className="hidden">
               {" "}
