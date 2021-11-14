@@ -1,13 +1,14 @@
 import React from 'react'
 import Links from './Links';
-
+import { BsCurrencyBitcoin } from "react-icons/bs";
 const Footer = () => {
     return (
       <footer className="bg-purple-600 text-white p-7 text-xl ">
-        <h1 className="text-center text-2xl">
+        {/* <h1 className="text-center text-2xl">
           {" "}
-          Crypto<span className="text-yellow-200">Info</span>
-        </h1>
+          Crypto
+          <span className="text-yellow-200">Info</span>
+        </h1> */}
         <section className="flex justify-around mt-3  ml-auto mr-auto max-w-screen-2xl">
           <section>
             <h1> Tech Stack Used</h1>
@@ -20,7 +21,7 @@ const Footer = () => {
             </ol>
           </section>
 
-          <section>
+          <section className="max-w-sm">
             <h1> Connect with me Around the Web</h1>
             <section className="flex">
               <Links />
@@ -43,7 +44,7 @@ const Footer = () => {
             Crypto<span className="text-yellow-200 ">Info</span> is a free
             Crypto-Currency information site created by Kripu Khadka for
             Demonstration Purpose.
-            <br/>
+            <br />
             @2021
           </p>
         </section>

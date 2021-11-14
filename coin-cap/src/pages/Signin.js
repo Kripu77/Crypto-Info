@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Signin = () => {
 
 
-    //useNavigate from react-router
+    //useNavigate from react-router v6 has replaced useHistory with useNavigate
 
     const naviagte = useNavigate();
     //manage state

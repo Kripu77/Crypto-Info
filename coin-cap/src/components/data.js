@@ -22,7 +22,7 @@ export const data = [
 
   {
     name: <FaGithub />,
-    ulr: "https://github.com/Kripu77",
+    url: "https://github.com/Kripu77",
     id: 4,
   },
 ];
