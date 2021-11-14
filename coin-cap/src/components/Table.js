@@ -28,7 +28,7 @@ const Table = () => {
             symbol,
           } = coins;
           return (
-            <tbody className="bg-gray-400 ">
+            <tbody className="bg-gray-400 " key={id}>
               <hr />
               <tr className="bg-gray-700 transition duration-700 ease-in-out ... hover:bg-gray-500 text-white p-3 cursor-pointer ">
                 <td className="flex justify-between max-w-sm p-8 uppercase ">

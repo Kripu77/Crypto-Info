@@ -24,12 +24,12 @@ const LoginInContext = ({children}) => {
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
     const[ data, setData] = React.useState([1,2,3,4]);
-    const [search, setSearch] = React.useState("");
+    const [search, setSearch] = React.useState([]);
 
 //fetch data from coincap api
 
 const fetchData= ()=>{
-    axios.get(url)
+    axios.get(`${url}/${search}`)
     .then((res)=>{setData(res.data)
     setLoading(false)})
 }
@@ -37,7 +37,7 @@ const fetchData= ()=>{
 //useEffect
 React.useEffect(()=>{
     fetchData()
-},[url])
+},[search])
 
 
 
