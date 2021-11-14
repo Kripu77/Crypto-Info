@@ -3,7 +3,7 @@ import Links from './Links';
 
 const Footer = () => {
     return (
-      <footer className="bg-purple-600 text-white p-2 text-xl ">
+      <footer className="bg-purple-600 text-white p-7 text-xl ">
         <h1 className="text-center text-2xl">
           {" "}
           Crypto<span className="text-yellow-200">Info</span>
@@ -16,7 +16,7 @@ const Footer = () => {
               <li> TaiwindCSS with JIT</li>
               <li> React JS with Hooks</li>
               <li> Firebase For Authentication</li>
-              <li> CoinCap API</li>
+              <li>API from COINCAP</li>
             </ol>
           </section>
 
@@ -27,11 +27,25 @@ const Footer = () => {
             </section>
           </section>
 
-          <section>
+          <section className="max-w-sm">
             <h1> Designed and Developed By Kripu Khadka @ 2021.</h1>
             <h1> Feel free to copy anything that you find useful.</h1>
             <h2> If you require any additional help please ping me!!!!</h2>
           </section>
+        </section>
+        <section className="text-center max-w-sm ml-auto mr-auto mt-3 p-3">
+          <h1 className="text-2xl">
+            {" "}
+            Crypto<span className="text-yellow-200">Info</span>
+          </h1>
+          <p className="text-sm p-3">
+            {" "}
+            Crypto<span className="text-yellow-200 ">Info</span> is a free
+            Crypto-Currency information site created by Kripu Khadka for
+            Demonstration Purpose.
+            <br/>
+            @2021
+          </p>
         </section>
       </footer>
     );
