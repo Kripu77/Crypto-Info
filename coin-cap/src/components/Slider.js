@@ -7,6 +7,15 @@ const responsive = {
   0: { items: 1 },
   568: { items: 2 },
   1024: { items: 3 },
+  1069:{items:4}, 1380:{
+      items:5
+  },
+  1560:{
+      items:6
+  }
+  , 1600:{
+      items:7
+  }
 };
 
 
@@ -21,11 +30,15 @@ const Carousel = () =>{
     
     const {current_price} = market_data;
     console.log(items)
-    return <div key={id} className="text-center"> 
-    <img src={image.large?image.large:{image}} alt={name} className="h-16 mt-20"/>
-    <h1 className="mr-20">{name}</h1>
-    <p className="text-green-400">${current_price.aud}</p>
-    </div>
+    return (
+      <div key={id} className="table ml-auto mr-auto">
+        <img src={image.large} alt={name} className=" mt-20 w-20" />
+        <h1>
+          {name} <br />
+          <span className="text-green-600">${current_price.aud}</span>
+        </h1>
+      </div>
+    );
    })
 
    
