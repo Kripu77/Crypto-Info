@@ -6,10 +6,12 @@ import Carousel from "../components/Slider";
 import Search from "../components/Search";
 import Table from "../components/Table";
 import Footer from "../components/Footer";
+import Error from "../components/Error";
+import Noresults from "../components/Noresults";
 
 
 const Home = () => {
-  const { currentUser, sendVerification } = useLoginContext();
+  const { currentUser, sendVerification, error } = useLoginContext();
 
  //Private Route to check if the token is present 
 const navigate = useNavigate();
@@ -49,7 +51,10 @@ if(authToken){
         <section className="max-w-screen-2xl ml-auto mr-auto">
           <h1 className="text-3xl"> Live Status of Crypto Currency</h1>
           <Search />
-          <Table />
+     
+          {
+              error? <Noresults/> : <Table/>
+          }
         </section>
       </section>
       <Footer />

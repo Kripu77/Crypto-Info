@@ -10,10 +10,11 @@ import { useLoginContext } from './context/LoginInContext';
 import Loading from './components/Loading';
 
 const App = () => {
-  const {loading} =useLoginContext()
+  const {loading, error} =useLoginContext()
   if(loading){
    return <Loading/>
   }
+  
     return (
       <div>
         <Router>

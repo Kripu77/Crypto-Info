@@ -29,9 +29,13 @@ const LoginInContext = ({children}) => {
 //fetch data from coincap api
 
 const fetchData= ()=>{
-    axios.get(`${url}/${search}`)
+    axios.get(`${url}${search}`)
     .then((res)=>{setData(res.data)
+        setError(false)
     setLoading(false)})
+
+    .catch((err)=>{console.error(err)
+    setError(true)})
 }
 
 //useEffect
