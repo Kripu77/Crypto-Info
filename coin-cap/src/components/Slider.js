@@ -24,6 +24,7 @@ const Carousel = () =>{
     
     
    const {data}= useLoginContext();
+   
    const image = data.map((items)=>{
 
     const{id, name, image, market_data }= items;

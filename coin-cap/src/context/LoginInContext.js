@@ -25,7 +25,13 @@ const LoginInContext = ({children}) => {
     const [loading, setLoading] =React.useState(true);
     const[ data, setData] = React.useState([1,2,3,4]);
     const [search, setSearch] = React.useState([]);
+    const[filter, setFilter] = React.useState([])
 
+
+
+    //filter data
+
+   
 //fetch data from coincap api
 
 const fetchData= ()=>{
