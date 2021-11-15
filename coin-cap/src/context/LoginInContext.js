@@ -35,13 +35,25 @@ const LoginInContext = ({children}) => {
 //fetch data from coincap api
 
 const fetchData= ()=>{
-    axios.get(`${url}${search}`)
-    .then((res)=>{setData(res.data)
-        setError(false)
-    setLoading(false)})
+    axios
+      .get(`${url}${search}`)
+      .then((res) => {
+        if (res.status > 200 || res.status < 299) {
+          setData(res.data);
 
-    .catch((err)=>{console.error(err)
-    setError(true)})
+          setError(false);
+          setLoading(false);
+        }
+        else{
+            setError(true)
+            setData([])
+        }
+      })
+
+      .catch((err) => {
+        console.error(err);
+        setError(true);
+      });
 }
 
 //useEffect

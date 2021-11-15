@@ -3,7 +3,7 @@ import { useLoginContext } from '../context/LoginInContext'
 
 const Table = () => {
     const{data} = useLoginContext();
-    console.log(data)
+
         //    const{name, id, marketcap, current_price, market_cap_change_percentage_24h } = coins
     return (
       <table className="table-fixed mt-4 rounded-md ml-auto mr-auto w-full ">
