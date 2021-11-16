@@ -46,6 +46,7 @@ const fetchData= ()=>{
         }
         else{
             setError(true)
+            setLoading(false)
             setData([])
         }
       })
@@ -53,6 +54,7 @@ const fetchData= ()=>{
       .catch((err) => {
         console.error(err);
         setError(true);
+        setLoading(false)
       });
 }
 
