@@ -188,7 +188,7 @@ React.useEffect(() => {
               onClick={() => {
                 google()
                   .then((resp) => {
-                    console.log(resp);
+                   
                     sessionStorage.setItem(
                       "Auth Token",
                       resp._tokenResponse.refreshToken
@@ -220,7 +220,7 @@ React.useEffect(() => {
               onClick={() =>
                 github()
                   .then((resp) => {
-                    console.log(resp);
+                    
 
                     toast.success(
                       "Please wait you will be directed towards login page"
