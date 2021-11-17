@@ -1,14 +1,11 @@
 import React from "react";
 import { useLoginContext } from "../context/LoginInContext";
 import { useNavigate } from "react-router-dom";
-import Slider from "../components/Slider";
 import Carousel from "../components/Slider";
-import Search from "../components/Search";
+
 import Table from "../components/Table";
 import Footer from "../components/Footer";
-import Error from "../components/Error";
 import Noresults from "../components/Noresults";
-import { BsCurrencyBitcoin } from "react-icons/bs";
 import Global from "../components/Global";
 
 
@@ -48,8 +45,6 @@ if(authToken){
       <section className="bg-gray-300 p-9 ">
         <section className="max-w-screen-2xl ml-auto mr-auto">
           <h1 className="text-3xl"> Live Status of Crypto Currency</h1>
-          <Search />
-
           {error ? <Noresults /> : <Table />}
         </section>
       </section>

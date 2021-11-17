@@ -23,20 +23,20 @@ const LoginInContext = ({children}) => {
     const [currentUser, setCurrentUser] = React.useState(null);
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
-    const[ data, setData] = React.useState([1,2,3,4]);
+    const[ data, setData] = React.useState([]);
     const [search, setSearch] = React.useState([]);
-    const[filter, setFilter] = React.useState([])
+ 
 
 
 
-    //filter data
+
 
    
 //fetch data from coincap api
 
 const fetchData= ()=>{
     axios
-      .get(`${url}${search}`)
+      .get(url)
       .then((res) => {
         if (res.status > 200 || res.status < 299) {
           setData(res.data);
@@ -61,7 +61,7 @@ const fetchData= ()=>{
 //useEffect
 React.useEffect(()=>{
     fetchData()
-},[search])
+},[])
 
 
 
@@ -130,7 +130,7 @@ function errorFnF(){
             errorFnT,
             sendEmailVerification,
             search, setSearch,
-            data, loading
+            data, loading, 
           }}
         >
           {children}
