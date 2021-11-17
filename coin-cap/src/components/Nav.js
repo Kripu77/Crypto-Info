@@ -8,7 +8,7 @@ const Nav = () => {
 
     const navigate = useNavigate();
     return (
-      <nav>
+      <nav >
         <section className="flex justify-between">
           <section className=" flex flex-row justify-between">
             <h1>
@@ -21,23 +21,35 @@ const Nav = () => {
             </button>
           </section>
           <section className="flex space-x-7 text-lg ">
-           {!currentUser && <button className="hover:text-gray-200">
-              <Link to="/"> Sign In</Link>
-            </button>}
-            {!currentUser &&<button className="hover:text-gray-200">
-              <Link to="/signup"> Sign up</Link>
-            </button>}
-           { currentUser && <button className="hover:text-gray-200">
-              <Link to="/home"> Home</Link>
-            </button>}
+            {!currentUser && (
+              <button className="hover:text-gray-200">
+                <Link to="/"> Sign In</Link>
+              </button>
+            )}
+            {!currentUser && (
+              <button className="hover:text-gray-200">
+                <Link to="/signup"> Sign up</Link>
+              </button>
+            )}
+            {currentUser && (
+              <button className="hover:text-gray-200">
+                <Link to="/home"> Home</Link>
+              </button>
+            )}
 
-            { currentUser &&  <button className="hover:text-gray-200" onClick={()=>{logOut()
-            .then(()=>{
-              sessionStorage.clear()
-              navigate('/')
-              })}}>
+            {currentUser && (
+              <button
+                className="hover:text-gray-200"
+                onClick={() => {
+                  logOut().then(() => {
+                    sessionStorage.clear();
+                    navigate("/");
+                  });
+                }}
+              >
                 Sign Out
-            </button> }
+              </button>
+            )}
           </section>
         </section>
       </nav>

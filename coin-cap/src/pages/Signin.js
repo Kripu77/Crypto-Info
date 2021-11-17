@@ -5,10 +5,10 @@ import { useLoginContext } from "../context/LoginInContext";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
 const Signin = () => {
-  //useNavigate from react-router v6 has replaced useHistory with useNavigate
+  //useNavigate from react-router v6
 
   const navigate = useNavigate();
-  //manage state
+
 
   const [inputData, setInputData] = React.useState({ email: "", password: "" });
   const [loading, setLoading] = React.useState(false);

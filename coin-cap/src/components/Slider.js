@@ -2,6 +2,7 @@ import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useLoginContext } from "../context/LoginInContext";
+import { numberWithCommas } from "./numberWithCommas";
 
 const responsive = {
   0: { items: 1 },
@@ -32,7 +33,7 @@ const Carousel = () =>{
     const {current_price} = market_data;
   
     return (
-      <div key={id} className="table ml-auto mr-auto">
+      <div key={id} className="table ml-auto mr-auto ">
         <img
           src={image.large}
           alt={name}
@@ -40,7 +41,9 @@ const Carousel = () =>{
         />
         <h1>
           {name} <br />
-          <span className="text-green-200">${current_price.aud}</span>
+          <span className="text-green-200">
+            ${numberWithCommas(current_price.aud)}
+          </span>
         </h1>
       </div>
     );
