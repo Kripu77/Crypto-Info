@@ -3,6 +3,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { useLoginContext } from "../context/LoginInContext";
 import { numberWithCommas } from "./numberWithCommas";
+import { Link } from "react-router-dom";
 
 const responsive = {
   0: { items: 1 },
@@ -34,11 +35,13 @@ const Carousel = () =>{
   
     return (
       <div key={id} className="table ml-auto mr-auto ">
-        <img
-          src={image.large}
-          alt={name}
-          className=" mt-20 w-20 cursor-pointer"
-        />
+        <Link to={`/coin/${items.id}`}>
+          <img
+            src={image.large}
+            alt={name}
+            className=" mt-20 w-20 cursor-pointer"
+          />
+        </Link>
         <h1>
           {name} <br />
           <span className="text-green-200">

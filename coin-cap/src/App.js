@@ -8,6 +8,7 @@ import Error from './components/Error';
 import Footer from './components/Footer';
 import { useLoginContext } from './context/LoginInContext';
 import Loading from './components/Loading';
+import Coin from './pages/Coin';
 
 const App = () => {
   const {loading, error} =useLoginContext()
@@ -24,6 +25,7 @@ const App = () => {
               <Route exact path="/" element={<Signin/>}></Route>
               <Route path="/home" element={<Home/>}></Route>
               <Route path="/signup" element={<SignUp/>}></Route>
+              <Route path='/coin/:id' element={<Coin/>}></Route>
               <Route path="*" element={<Error/>}></Route>
           </Routes>
          
