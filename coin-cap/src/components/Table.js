@@ -10,7 +10,7 @@ const Table = () => {
  
 
     const[tableData, setTableData] = React.useState([])
-      const [search, setSearch] = React.useState(null);
+      const [search, setSearch] = React.useState('');
     const[loading, setLoading]= React.useState(true);
     const[error, setError] = React.useState(false)
 
@@ -38,25 +38,35 @@ const Table = () => {
     }, [])
 
     //filter
-    const filterData = (search)=>{
-    if(search===null){
-      return tableData
-    }
+    // const filterData = (search)=>{
+    // if(search===''){
+    //   return tableData
+    // }
 
-    else{
+    // else{
 
 
-        setTableData(
-          tableData.filter((value) => {
-            console.log(value.symbol);
-            return (
-              value.id.includes(search) ||
-              value.symbol.toLowerCase().includes(search)
-            );
-          })
-        );}
+    //     setTableData(
+    //       tableData.filter((value) => {
+    //         console.log(value.symbol);
+    //         return (
+    //           value.id.includes(search) ||
+    //           value.symbol.toLowerCase().includes(search)
+    //         );
+    //       })
+    //     );}
       
-    }
+    // }
+
+    const handleSearch = () => {
+    
+      return tableData.filter(
+        (coin) =>
+          coin.id.includes(search) ||
+          coin.symbol.toLowerCase().includes(search)
+      );
+      
+    };
 //conditional render
 if(loading){
   return <SecondaryLoading/>
@@ -69,7 +79,7 @@ if(error){
       <main>
         <section>
           <h1 className="text-yellow-900"> Search</h1>
-          <form onChange={()=>filterData(search)}>
+       
             <input
               type="text"
               className=" w-full h-10 rounded p-4 bg-gray-100 text-black focus:outline-none focus:ring focus:border-black ..."
@@ -77,7 +87,7 @@ if(error){
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             ></input>
-          </form>
+      
         </section>
         <table className="table-fixed mt-4 rounded-md ml-auto mr-auto w-full shadow-2xl ">
           <thead className="bg-yellow-400 h-20 rounded-sm">
@@ -89,7 +99,7 @@ if(error){
             </tr>
           </thead>
 
-          {tableData.map((coins) => {
+          {handleSearch().map((coin) => {
             const {
               name,
               image,
@@ -98,7 +108,7 @@ if(error){
               current_price,
               market_cap_change_percentage_24h,
               symbol,
-            } = coins;
+            } = coin;
             return (
               <tbody
                 className="bg-gray-400 border-solid border-b-2 border-light-blue-500 "
