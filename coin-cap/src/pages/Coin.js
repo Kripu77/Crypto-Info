@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useParams } from 'react-router-dom'
+import ChartTable from '../components/ChartTable';
 import Error from '../components/Error';
 import Footer from '../components/Footer';
 import Loading from '../components/Loading';
@@ -61,6 +62,7 @@ if(error){
           <h1> Market Cap: ${ numberWithCommas( singleData.market_data.market_cap.aud)}</h1>
           <h1>Rank : {singleData.market_cap_rank}</h1>
         </section>
+        <ChartTable id={id}/>
         <Footer />
       </section>
     );

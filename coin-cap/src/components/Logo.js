@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Logo = () => {
     return (
       <section>
-        <h1 className="text-center ">
+      <Link to="/home" > <h1 className="text-center "> 
     
           Crypto<span className="text-yellow-300">Info</span>
-        </h1>
+        </h1> </Link>
       </section>
     );
 }

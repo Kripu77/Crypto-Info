@@ -8,13 +8,15 @@ const Nav = () => {
 
     const navigate = useNavigate();
     return (
-      <nav >
+      <nav>
         <section className="flex justify-between">
           <section className=" flex flex-row justify-between">
-            <h1>
+            <Link to="/home">
               {" "}
-              Crypto<span className="text-yellow-300">Info</span>
-            </h1>
+              <h1 className="text-center ">
+                Crypto<span className="text-yellow-300">Info</span>
+              </h1>{" "}
+            </Link>
             <button className="hidden">
               {" "}
               <FiAlignCenter />{" "}

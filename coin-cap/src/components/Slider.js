@@ -32,6 +32,7 @@ const Carousel = () =>{
     const{id, name, image, market_data }= items;
     
     const {current_price} = market_data;
+    console.log(market_data)
   
     return (
       <div key={id} className="table ml-auto mr-auto ">
@@ -44,9 +45,13 @@ const Carousel = () =>{
         </Link>
         <h1>
           {name} <br />
-          <span className="text-green-200">
+          <span className="text-green-600">
             ${numberWithCommas(current_price.aud)}
           </span>
+        </h1>
+        <h1 className={market_data.market_cap_change_percentage_24h<1?'text-red-600': 'text-green-600'}>
+          {" "}
+          {market_data.market_cap_change_percentage_24h.toFixed(2)<1 ? market_data.market_cap_change_percentage_24h.toFixed(2) : `+${market_data.market_cap_change_percentage_24h.toFixed(2)}` }%
         </h1>
       </div>
     );
