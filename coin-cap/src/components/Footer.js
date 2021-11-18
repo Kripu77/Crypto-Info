@@ -17,7 +17,7 @@ const Footer = () => {
               <li> TaiwindCSS with JIT</li>
               <li> React JS with Hooks</li>
               <li> Firebase For Authentication</li>
-              <li>API from COINCAP</li>
+              <li>API from COINGECKO</li>
             </ol>
           </section>
 
@@ -28,7 +28,7 @@ const Footer = () => {
             </section>
           </section>
 
-          <section className="max-w-sm">
+          <section className="max-w-md">
             <h1> Designed and Developed By Kripu Khadka @ 2021.</h1>
             <h1> Feel free to copy anything that you find useful.</h1>
             <h2> If you require any additional help please ping me!!!!</h2>

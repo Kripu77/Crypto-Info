@@ -76,7 +76,7 @@ const Global = () => {
                           }
                         >
                           {" "}
-                          {marketPer}%
+                          {marketPer>1?`+${marketPer}`:`-${marketPer}`}%
                         </p>
                       </div>
                     </div>

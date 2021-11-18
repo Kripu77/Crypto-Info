@@ -32,7 +32,7 @@ const Carousel = () =>{
     const{id, name, image, market_data }= items;
     
     const {current_price} = market_data;
-    console.log(market_data)
+ 
   
     return (
       <div key={id} className="table ml-auto mr-auto ">

@@ -12,5 +12,8 @@ export const data=[
     },{
         name: ' 1 Year', 
         value : 365
+    },{
+        name: '5 Years',
+        value: 1825
     }
 ]

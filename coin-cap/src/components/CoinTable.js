@@ -30,12 +30,16 @@ const CoinTable = ({handleSearch}) => {
                 className="bg-gray-400 border-solid border-b-2 border-light-blue-500 "
                 key={id}
               >
-                  
-                {" "}
+                
                 <tr className="bg-gray-700 transition duration-700 ease-in-out ... hover:bg-gray-500 text-white p-3 cursor-pointer ">
-                        <Link to={`/coin/${id}`}>
                   <td className="flex justify-between max-w-sm p-8 uppercase ">
-                    <img src={image} className="hover:shadow-2xl h-11 " />
+                    <Link to={`/coin/${id}`}>
+                      
+                      <img
+                        src={image}
+                        className="hover:shadow-2xl h-11 "
+                      />
+                    </Link>
 
                     <div className="flex flex-col w-40">
                       <h1 className="text-2xl">{symbol}</h1>
@@ -51,8 +55,11 @@ const CoinTable = ({handleSearch}) => {
                         : "text-green-400"
                     }
                   >
-                    {     market_cap_change_percentage_24h < 1 ? market_cap_change_percentage_24h.toFixed(2):  `+${market_cap_change_percentage_24h.toFixed(2)}`}%
-                  </td></Link>
+                    {market_cap_change_percentage_24h < 1
+                      ? market_cap_change_percentage_24h.toFixed(2)
+                      : `+${market_cap_change_percentage_24h.toFixed(2)}`}
+                    %
+                  </td>
                 </tr>
               </tbody>
             );

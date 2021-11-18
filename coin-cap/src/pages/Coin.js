@@ -4,68 +4,71 @@ import { useParams } from 'react-router-dom'
 import ChartTable from '../components/ChartTable';
 import Error from '../components/Error';
 import Footer from '../components/Footer';
-import Loading from '../components/Loading';
-import { numberWithCommas } from '../components/numberWithCommas';
+import { useNavigate } from 'react-router-dom';
+
 import SecondaryLoading from '../components/SecondaryLoading';
 import { SingleCoin } from '../config/api';
 
+import AdditionalInfo from '../components/AdditionalInfo';
+import CoinMasthead from '../components/CoinMasthead';
 
 const Coin = () => {
+  //Private Route to check if the token is present
+  const navigate = useNavigate();
 
-    const [singleData, setSingleData] = React.useState([]);
-    const[loading, setLoading] =React.useState(true);
-    const[error, setError] = React.useState(false)
-const {id} = useParams()
-console.log(useParams());
-// console.log(singleData.description.es)
-    //fetch data
-
-    const getData = ()=>{
-        axios.get(SingleCoin(id))
-        .then((resp)=>{
-            console.log(resp.data)
-            setSingleData(resp.data)
-            setLoading(false)
-            
-        })
-        .catch((err)=>{
-            setError(true)
-            setLoading(false)
-        })
-
+  //useEffect to monitor it only runs once
+  React.useEffect(() => {
+    let authToken = sessionStorage.getItem("Auth Token");
+    if (!authToken) {
+      navigate("/");
     }
+   
+  }, []);
 
+  const [singleData, setSingleData] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(false);
+  const { id } = useParams();
 
-    //useEffect
-    React.useEffect(()=>{
-        getData()
-    },[id])
+  // console.log(singleData.description.es)
+  //fetch data
 
-//conditional render
-if(loading){
-    return <SecondaryLoading/>
-}
-if(error){
-    return <Error/>
-}
+  const getData = () => {
+    axios
+      .get(SingleCoin(id))
+      .then((resp) => {
+    
+        setSingleData(resp.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(true);
+        setLoading(false);
+      });
+  };
 
-    return (
-      <section>
-        <section className="mt-10 text-center max-w-5xl ml-auto mr-auto mb-10">
-          <img src={singleData.image.large} className="mr-auto ml-auto" />
-          <h1 className="text-4xl text-center"> {singleData.name}</h1>
-          <h1>
-            Description: <br />
-            {singleData.description.ar}
-          </h1>
-          <h1> Price: ${singleData.market_data.current_price.aud}</h1>
-          <h1> Market Cap: ${ numberWithCommas( singleData.market_data.market_cap.aud)}</h1>
-          <h1>Rank : {singleData.market_cap_rank}</h1>
-        </section>
-        <ChartTable id={id}/>
-        <Footer />
-      </section>
-    );
+  //useEffect
+  React.useEffect(() => {
+    getData();
+  }, [id]);
+
+  //conditional render
+  if (loading) {
+    return <SecondaryLoading />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
+  return (
+    <section>
+        <CoinMasthead singleData={singleData}/>
+     
+      <ChartTable id={id} />
+      <AdditionalInfo singleData={singleData}/>
+      <Footer />
+    </section>
+  );
 }
 
 export default Coin

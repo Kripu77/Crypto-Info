@@ -175,6 +175,9 @@ if(!authToken){
                         "You already have a different account registered with this email."
                       );
                     }
+                    else{
+                      toast.error("Please contact adminstrator")
+                    }
                   });
               }}
             >

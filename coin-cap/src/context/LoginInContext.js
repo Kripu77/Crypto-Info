@@ -24,7 +24,7 @@ const LoginInContext = ({children}) => {
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
     const[ data, setData] = React.useState([]);
-    const [search, setSearch] = React.useState([]);
+
  
 
 
@@ -114,6 +114,8 @@ function errorFnT(){
 function errorFnF(){
     return setError(false)
 }
+
+
     return (
       <div>
         <logInContextProvider.Provider
@@ -129,7 +131,6 @@ function errorFnF(){
             errorFnF,
             errorFnT,
             sendEmailVerification,
-            search, setSearch,
             data, loading, 
           }}
         >
