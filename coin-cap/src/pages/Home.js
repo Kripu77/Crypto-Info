@@ -6,7 +6,7 @@ import MainBody from "../components/MainBody";
 
 
 const Home = () => {
-  const { currentUser, sendVerification, error } = useLoginContext();
+
 
  //Private Route to check if the token is present 
 const navigate = useNavigate();

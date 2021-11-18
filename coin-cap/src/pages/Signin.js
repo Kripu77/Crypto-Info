@@ -12,7 +12,7 @@ const Signin = () => {
 
   const [inputData, setInputData] = React.useState({ email: "", password: "" });
   const [loading, setLoading] = React.useState(false);
-  console.log(useLoginContext());
+
   // context functions
   const { login, google, github } = useLoginContext();
 
@@ -39,7 +39,7 @@ const Signin = () => {
         setLoading(true);
         login(inputData.email, inputData.password)
           .then((resp) => {
-            console.log(resp);
+         
             toast.success("Hang In directing you to Homepage")
             sessionStorage.setItem('Auth Token', resp._tokenResponse.refreshToken )
             //   navigate will push the user to home page once logged in

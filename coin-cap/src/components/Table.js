@@ -21,7 +21,7 @@ const Table = () => {
       .then((resp)=>{
         setTableData(resp.data)
         setLoading(false)
-        console.log(resp.data)
+       
       })
       .catch((err)=>{
         setError(true)
