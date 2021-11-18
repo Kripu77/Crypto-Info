@@ -10,6 +10,8 @@ Some key features
 5) Indvidual coin data display with historical records integrated with react charts
 6) More Functionality adding on.
 
+DEMO LINK: https://cryptoinfor.netlify.app/home
+
 
 Plan (Web3.js)
 
