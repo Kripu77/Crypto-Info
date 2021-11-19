@@ -4,6 +4,7 @@ import { useLoginContext } from "../context/LoginInContext";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
+import {Helmet} from "react-helmet"
 
 const SignUp = () => {
   //manage state
@@ -112,6 +113,11 @@ React.useEffect(() => {
 }, []);
   return (
     <section className="text-lg mt-20 ">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title> Sign Up</title>
+        <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
+      </Helmet>
       <section className="ml-auto mr-auto max-w-md mb-40">
         <h1 className="text-2xl text-center"> Sign Up</h1>
         <form className="mt-5 text-lg " onSubmit={handleSubmit}>
@@ -188,7 +194,6 @@ React.useEffect(() => {
               onClick={() => {
                 google()
                   .then((resp) => {
-                   
                     sessionStorage.setItem(
                       "Auth Token",
                       resp._tokenResponse.refreshToken
@@ -220,8 +225,6 @@ React.useEffect(() => {
               onClick={() =>
                 github()
                   .then((resp) => {
-                    
-
                     toast.success(
                       "Please wait you will be directed towards login page"
                     );

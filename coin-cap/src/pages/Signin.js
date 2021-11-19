@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useLoginContext } from "../context/LoginInContext";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
+import {Helmet} from "react-helmet"
 const Signin = () => {
   //useNavigate from react-router v6
 
@@ -86,6 +87,11 @@ if(!authToken){
 },[])
   return (
     <section>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title> Sign In</title>
+        <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
+      </Helmet>
       <section className="mt-20 ml-auto mr-auto max-w-md mb-40 ">
         <h1 className="text-2xl text-center"> Sign In</h1>
         <section className="ml-auto mr-auto max-w-md mb-40">
@@ -154,7 +160,6 @@ if(!authToken){
               onClick={() => {
                 google()
                   .then((resp) => {
-                  
                     sessionStorage.setItem(
                       "Auth Token",
                       resp._tokenResponse.refreshToken
@@ -174,9 +179,8 @@ if(!authToken){
                       toast.error(
                         "You already have a different account registered with this email."
                       );
-                    }
-                    else{
-                      toast.error("Please contact adminstrator")
+                    } else {
+                      toast.error("Please contact adminstrator");
                     }
                   });
               }}
@@ -210,7 +214,6 @@ if(!authToken){
                         "You already have a different account registered with this email."
                       );
                     }
-                 
                   })
               }
             >

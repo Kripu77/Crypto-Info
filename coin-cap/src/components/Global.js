@@ -39,7 +39,10 @@ const Global = () => {
                   data.market_cap_change_percentage_24h_usd.toFixed(2)
                 )
                 return (
-                  <div key={Date.now()} className="flex justify-evenly">
+                  <div
+                    key={Date.now()}
+                    className="sm:flex justify-around mt-3  ml-auto mr-auto max-w-screen-2xl "
+                  >
                     <div>
                       <div>
                         <h1> Total Cryptocurrencies</h1>
@@ -76,7 +79,7 @@ const Global = () => {
                           }
                         >
                           {" "}
-                          {marketPer>1?`+${marketPer}`:`-${marketPer}`}%
+                          {marketPer > 1 ? `+${marketPer}` : `-${marketPer}`}%
                         </p>
                       </div>
                     </div>

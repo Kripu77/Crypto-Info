@@ -10,7 +10,7 @@ const Nav = () => {
     return (
       <nav>
         <section className="flex justify-between">
-          <section className=" flex flex-row justify-between">
+          <section className=" flex flex-row justify-between p-2">
             <Link to="/home">
               {" "}
               <h1 className="text-center ">
@@ -22,7 +22,7 @@ const Nav = () => {
               <FiAlignCenter />{" "}
             </button>
           </section>
-          <section className="flex space-x-7 text-lg ">
+          <section className=" hidden sm:flex space-x-7 text-lg">
             {!currentUser && (
               <button className="hover:text-gray-200">
                 <Link to="/"> Sign In</Link>

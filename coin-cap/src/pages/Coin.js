@@ -11,6 +11,8 @@ import { SingleCoin } from '../config/api';
 
 import AdditionalInfo from '../components/AdditionalInfo';
 import CoinMasthead from '../components/CoinMasthead';
+import { Helmet } from "react-helmet";
+
 
 const Coin = () => {
   //Private Route to check if the token is present
@@ -62,10 +64,15 @@ const Coin = () => {
 
   return (
     <section>
-        <CoinMasthead singleData={singleData}/>
-     
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title> {id.toUpperCase()}</title>
+        <link rel="canonical" href="https://cryptoinfor.netlify.app" />
+      </Helmet>
+      <CoinMasthead singleData={singleData} />
+
       <ChartTable id={id} />
-      <AdditionalInfo singleData={singleData}/>
+      <AdditionalInfo singleData={singleData} />
       <Footer />
     </section>
   );

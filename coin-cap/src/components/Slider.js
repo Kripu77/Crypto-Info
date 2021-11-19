@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 const responsive = {
   0: { items: 1 },
-  568: { items: 2 },
-  1024: { items: 3 },
-  1069:{items:4}, 1380:{
+  268: { items: 2 },
+  524: { items: 3 },
+  769:{items:4}, 1380:{
       items:5
   },
-  1560:{
+  1100:{
       items:6
   }
   , 1600:{

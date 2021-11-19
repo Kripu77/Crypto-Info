@@ -76,15 +76,16 @@ const ChartTable = ({ id }) => {
             },
           }}
         />
-        <div className="flex text-center">
+        <div className="block text-center sm:flex ">
           {data.map((val) => {
             const { name, value } = val;
           
             return (
               <div className=" ml-auto mr-auto" key={value}>
+               
                 <button
                   key={value}
-                  className="bg-purple-600 hover:bg-purple-500 text-white uppercase text-md mx-auto p-2 m-8 ml-4 rounded text-center w-40"
+                  className="bg-purple-600 hover:bg-purple-500 text-white uppercase text-md mx-auto p-2 mt-4 ml-4 rounded text-center w-40"
                   onClick={() => setDays(value)}
                 >
                   {name}
