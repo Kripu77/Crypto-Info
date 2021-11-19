@@ -1,10 +1,12 @@
 import React from 'react'
+import { FaCross } from 'react-icons/fa';
 import { FiAlignCenter } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginInContext';
 const Nav = () => {
 
-    const{currentUser, logOut} = useLoginContext();
+  const{currentUser, logOut, navShow, show} = useLoginContext();
+ 
 
     const navigate = useNavigate();
     return (
@@ -17,24 +19,23 @@ const Nav = () => {
                 Crypto<span className="text-yellow-300">Info</span>
               </h1>{" "}
             </Link>
-            <button className="hidden">
-              {" "}
-              <FiAlignCenter />{" "}
-            </button>
           </section>
-          <section className=" hidden sm:flex space-x-7 text-lg">
+          {/* hidden sm:flex space-x-7 text-lg  */}
+          <section
+            className={show ? "show-util" : "hidden sm:flex space-x-7 text-lg "}
+          >
             {!currentUser && (
-              <button className="hover:text-gray-200">
+              <button className="hover:text-gray-200" onClick={() => navShow()}>
                 <Link to="/"> Sign In</Link>
               </button>
             )}
             {!currentUser && (
-              <button className="hover:text-gray-200">
+              <button className="hover:text-gray-200" onClick={() => navShow()}>
                 <Link to="/signup"> Sign up</Link>
               </button>
             )}
             {currentUser && (
-              <button className="hover:text-gray-200">
+              <button className="hover:text-gray-200" onClick={()=>navShow()}>
                 <Link to="/home"> Home</Link>
               </button>
             )}
@@ -52,7 +53,14 @@ const Nav = () => {
                 Sign Out
               </button>
             )}
+            <button className="hidden" onClick={() => navShow()}>
+              <FaCross />
+            </button>
           </section>
+          <button className="hidden nav-hidden" onClick={() => navShow()}>
+            {" "}
+            <FiAlignCenter />{" "}
+          </button>
         </section>
       </nav>
     );

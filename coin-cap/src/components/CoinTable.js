@@ -14,8 +14,8 @@ const CoinTable = ({handleSearch}) => {
     };
 
     return (
-      <section className="">
-        <table className="table-fixed mt-4 rounded-md ml-auto mr-auto max-w-xs sm:mx-auto sm:w-full shadow-2xl  ">
+      <section>
+        <table className="table-fixed mt-4 rounded-md ml-auto mr-auto sm:w-11/12 shadow-2xl  ">
           <thead className="bg-yellow-400 h-20 rounded-sm">
             <tr className="p-10">
               <th className=" w-1 ...">Coin</th>

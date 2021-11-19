@@ -83,7 +83,7 @@ if(error){
 
           <input
             type="text"
-            className="  w-3 sm:w-full h-10 rounded p-4 ml-auto mr-auto' bg-gray-100 text-black focus:outline-none focus:ring focus:border-black ..."
+            className="  w-26 sm:w-full h-10 rounded p-4 ml-auto mr-auto' bg-gray-100 text-black focus:outline-none focus:ring focus:border-black ..."
             placeholder="Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}

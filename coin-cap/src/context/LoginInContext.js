@@ -24,7 +24,7 @@ const LoginInContext = ({children}) => {
     const[error, setError] = React.useState(false);
     const [loading, setLoading] =React.useState(true);
     const[ data, setData] = React.useState([]);
-
+const[show, setShow]=React.useState(false);
  
 
 
@@ -115,6 +115,11 @@ function errorFnF(){
     return setError(false)
 }
 
+//for nav toggler
+
+function navShow(){
+  return setShow(!show)
+}
 
     return (
       <div>
@@ -132,6 +137,7 @@ function errorFnF(){
             errorFnT,
             sendEmailVerification,
             data, loading, 
+            navShow, show
           }}
         >
           {children}

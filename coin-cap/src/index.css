@@ -52,10 +52,27 @@ h1 a{
     color: grey;
    
 }
-
+table{
+    width: 55rem;
+    overflow-y: none;
+}
 @media only screen and (max-width:680px) 
 {
+   
     .navigationButtons{
      width: 12rem;
+    }
+    .nav-hidden{
+        display: block;
+    }
+    .show-util{
+      
+        background-color: #7C3AED;
+        display: flex;
+        flex-direction: column;
+      margin-right: 5rem; 
+      padding-top: 4rem;
+        
+
     }
 }
