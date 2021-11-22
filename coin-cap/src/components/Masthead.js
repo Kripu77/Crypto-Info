@@ -1,9 +1,18 @@
 import React from 'react'
 import Global from './Global';
 import Carousel from './Slider';
+import { motion } from 'framer-motion';
 const Masthead = () => {
+  const animationStyle = {
+    hidden:{opacity:0, y:-500},
+    show:{opacity:1, y:0, transition:{
+      default:{duration:3}, delay:0.3, type:"spring", stiffness:10
+    }}
+    
+  }
     return (
-      <div
+      <motion.div variants={animationStyle}
+      initial="hidden" animate="show"
         className="bg-fixed text-white min-h-full bg-cover bg-no-repeat w-max-content p-6 object-fill"
         style={{
           backgroundImage: `url(
@@ -14,7 +23,7 @@ const Masthead = () => {
 
         <Global />
         <Carousel />
-      </div>
+      </motion.div>
     );
 }
 

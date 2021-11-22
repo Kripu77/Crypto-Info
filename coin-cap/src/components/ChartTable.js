@@ -5,6 +5,7 @@ import { HistoricalChart } from "../config/api";
 import { Line } from "react-chartjs-2";
 import SecondaryLoading from "./SecondaryLoading";
 import { data } from "../config/buttonData";
+import { motion } from "framer-motion";
 
 
 
@@ -15,6 +16,14 @@ const ChartTable = ({ id }) => {
   const [days, setDays] = React.useState(1)
 
 
+  //framer setup alter as required
+
+  const chartAnimation ={
+    hidden:{x:-1000, opacity:0.7 },
+    show:{x:0, opacity:10, transition:{
+    default:{ ease: "easeOut",duration:2}, delay:0.4, type:"spring", stiffness:20
+    }}
+  }
 
   //get  chart data
 
@@ -47,7 +56,9 @@ const ChartTable = ({ id }) => {
   }
   return (
     <>
-      <section className="max-w-screen-lg ml-auto mr-auto">
+      <motion.section variants={chartAnimation} initial="hidden"
+      animate="show"
+       className="max-w-screen-lg ml-auto mr-auto">
         <Line
           data={{
             labels: historicData.map((coin) => {
@@ -94,7 +105,7 @@ const ChartTable = ({ id }) => {
             );
           })}
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

@@ -4,6 +4,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import { useLoginContext } from "../context/LoginInContext";
 import { numberWithCommas } from "./numberWithCommas";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const responsive = {
   0: { items: 1 },
@@ -37,7 +38,9 @@ const Carousel = () =>{
     return (
       <div key={id} className="table ml-auto mr-auto ">
         <Link to={`/coin/${items.id}`}>
-          <img
+          <motion.img
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
             src={image.large}
             alt={name}
             className=" mt-20 w-20 cursor-pointer"
@@ -49,9 +52,18 @@ const Carousel = () =>{
             ${numberWithCommas(current_price.aud)}
           </span>
         </h1>
-        <h1 className={market_data.market_cap_change_percentage_24h<1?'text-red-600': 'text-green-600'}>
+        <h1
+          className={
+            market_data.market_cap_change_percentage_24h < 1
+              ? "text-red-600"
+              : "text-green-600"
+          }
+        >
           {" "}
-          {market_data.market_cap_change_percentage_24h.toFixed(2)<1 ? market_data.market_cap_change_percentage_24h.toFixed(2) : `+${market_data.market_cap_change_percentage_24h.toFixed(2)}` }%
+          {market_data.market_cap_change_percentage_24h.toFixed(2) < 1
+            ? market_data.market_cap_change_percentage_24h.toFixed(2)
+            : `+${market_data.market_cap_change_percentage_24h.toFixed(2)}`}
+          %
         </h1>
       </div>
     );

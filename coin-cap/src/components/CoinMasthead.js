@@ -1,10 +1,31 @@
 import React from 'react'
 import { numberWithCommas } from './numberWithCommas';
 import ReactHtmlParser from "react-html-parser";
+import { motion } from 'framer-motion';
 const CoinMasthead = ({singleData}) => {
+
+  const animationStyle = {
+    hidden: { y: -500, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: { default:{duration: 3}, delay:0.3,  type: "spring", stiffness: 10 },
+    },
+  };
     return (
-      <section className="mt-10 text-center max-w-5xl ml-auto mr-auto mb-10 text-3xl">
-        <img src={singleData.image.large} className="mr-auto ml-auto" />
+      <motion.section
+       variants={animationStyle}
+       initial="hidden"
+       animate="show"
+        className="mt-10 text-center max-w-5xl ml-auto mr-auto mb-10 text-3xl"
+      >
+        <motion.img
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, rotate: 360 }}
+          transition={{ duration: 1.5, delay:0.6 }}
+          src={singleData.image.large}
+          className="mr-auto ml-auto"
+        />
         <h1 className="text-4xl text-center"> {singleData.name}</h1>
         <h1 className="text-xl">
           {ReactHtmlParser(singleData.description.en.split(". ")[0])}.
@@ -43,7 +64,7 @@ const CoinMasthead = ({singleData}) => {
             %
           </span>
         </h1>
-      </section>
+      </motion.section>
     );
 }
 

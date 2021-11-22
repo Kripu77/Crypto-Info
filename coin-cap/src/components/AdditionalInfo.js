@@ -1,6 +1,22 @@
 import React from 'react'
 import ReactHtmlParser from "react-html-parser";
+import { motion } from 'framer-motion';
 const AdditionalInfo = ({singleData}) => {
+
+  //framer setup
+  const animationStyle = {
+    hidden: { x: -1000, opacity: 0.7 },
+    show: {
+      x: 0,
+      opacity: 10,
+      transition: {
+        default: { duration: 3.8 },
+        delay: 0.2,
+        type: "spring",
+        stiffness: 20,
+      },
+    },
+  };
 
     const{ developer_data, developer_score, genesis_date, hashing_algorithm, market_data,   } = singleData;
 
@@ -8,7 +24,7 @@ const AdditionalInfo = ({singleData}) => {
     const{high_24h, low_24h, price_change_24h_in_currency, price_change_percentage_24h_in_currency, 
 } = market_data
     return (
-      <section className="text-center text-3xl mt-10 mb-10 ">
+      <motion.section variants={animationStyle} initial="hidden" animate="show" className="text-center text-3xl mt-10 mb-10 ">
         <h1> Other Stats</h1>
 
         <section className="flex justify-around text-xl p-10">
@@ -43,7 +59,7 @@ const AdditionalInfo = ({singleData}) => {
             <h1> Hashing Algorith : {hashing_algorithm}</h1>
           </div>
         </section>
-      </section>
+      </motion.section>
     );
 }
 
