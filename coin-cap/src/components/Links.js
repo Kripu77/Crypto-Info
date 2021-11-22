@@ -12,7 +12,7 @@ const Links = () => {
           const { name, url, id } = value;
           return (
             <div key={id}>
-              <a href={url} alt={name} className=" text-white hover:text-gray-300">
+              <a href={url} alt={name} className=" text-white hover:text-gray-300 text-3xl">
                 {" "}
                 {name}
               </a>

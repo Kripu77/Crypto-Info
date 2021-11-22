@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaCross } from 'react-icons/fa';
+import { ImCross } from "react-icons/im";
 import { FiAlignCenter } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginInContext';
@@ -11,8 +11,8 @@ const Nav = () => {
     const navigate = useNavigate();
     return (
       <nav>
-        <section className="flex justify-between">
-          <section className=" flex flex-row justify-between p-2">
+        <section className="flex justify-between p-2">
+          <section>
             <Link to="/home">
               {" "}
               <h1 className="text-center ">
@@ -24,52 +24,65 @@ const Nav = () => {
           <section
             className={
               show
-                ? "fixed bg-purple-500 z-10 top-0 left-0 right-0 h-screen flex justify-around transition-all sm:static sm:h-0 "
-                : "hidden top-0 -ml-96  sm:flex sm:static"
+                ? "fixed bg-purple-600 z-10 top-0 left-0 right-0 h-screen flex justify-around transition sm:static sm:h-0  "
+                : "hidden top-0 -ml-96 transition-all  sm:flex sm:static sm:h-0"
             }
           >
-            <section className="flex flex-col mt-1 m:flex-row sm:space-x-7 relative">
-              {!currentUser && (
-                <button
-                  className="hover:text-gray-200"
-                  onClick={() => navShow()}
-                >
-                  <Link to="/"> Sign In</Link>
-                </button>
+            <section className="text-center sm:p-0">
+              {show && (
+                <h1 className="sm:hidden">
+                  {" "}
+                  Crypto<span className="text-yellow-300">Info</span>
+                </h1>
               )}
-              {!currentUser && (
-                <button
-                  className="hover:text-gray-200"
-                  onClick={() => navShow()}
-                >
-                  <Link to="/signup"> Sign up</Link>
-                </button>
-              )}
-              {currentUser && (
-                <button
-                  className="hover:text-gray-200"
-                  onClick={() => navShow()}
-                >
-                  <Link to="/home"> Home</Link>
-                </button>
-              )}
+              <section className=" space-x-3 flex replace ">
+                {!currentUser && (
+                  <button
+                    className="hover:text-gray-200"
+                    onClick={() => navShow()}
+                  >
+                    <Link to="/"> Sign In</Link>
+                  </button>
+                )}
+                {!currentUser && (
+                  <button
+                    className="hover:text-gray-200"
+                    onClick={() => navShow()}
+                  >
+                    <Link to="/signup"> Sign up</Link>
+                  </button>
+                )}
+                {currentUser && (
+                  <button
+                    className="hover:text-gray-200"
+                    onClick={() => navShow()}
+                  >
+                    <Link to="/home"> Home</Link>
+                  </button>
+                )}
 
-              {currentUser && (
+                {currentUser && (
+                  <button
+                    className="hover:text-gray-200"
+                    onClick={() => {
+                      logOut().then(() => {
+                        sessionStorage.clear();
+                        navigate("/");
+                      });
+                    }}
+                  >
+                    Sign Out
+                  </button>
+                )}
                 <button
-                  className="hover:text-gray-200"
-                  onClick={() => {
-                    logOut().then(() => {
-                      sessionStorage.clear();
-                      navigate("/");
-                    });
-                  }}
+                  className={
+                    show ? "fixed right-10 top-10 sm:hidden" : "hidden"
+                  }
+                  onClick={() => navShow()}
                 >
-                  Sign Out
+                  <ImCross />
                 </button>
-              )}
-              <button className={show?"fixed right-10 top-10 sm:hidden": "hidden"} onClick={() => navShow()}>
-                <FaCross />
-              </button>
+              </section>
             </section>
           </section>
           <button className="block sm:hidden" onClick={() => navShow()}>

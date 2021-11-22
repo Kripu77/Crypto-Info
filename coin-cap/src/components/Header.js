@@ -4,7 +4,7 @@ import Nav from './Nav'
 
 const Header = () => {
     return (
-      <main className="bg-purple-600 text-white p-2 text-2xl sticky top-0 z-10 ">
+      <main className="bg-purple-600 text-white p-4 text-2xl sticky top-0 z-10 ">
        <Logo/>
         <Nav />
       </main>

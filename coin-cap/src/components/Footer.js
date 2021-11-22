@@ -9,8 +9,8 @@ const Footer = () => {
           Crypto
           <span className="text-yellow-200">Info</span>
         </h1> */}
-        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center ">
-          <section>
+        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center space-x-1  ">
+          <section className=" ml-auto mr-auto pt-3 ">
             <h1 className="text-2xl"> Tech Stack Used</h1>
             <ol>
               <li> HTML5</li>
@@ -21,14 +21,14 @@ const Footer = () => {
             </ol>
           </section>
 
-          <section className="max-w-md ml-auto mr-auto pt-3 ">
-            <h1 className="text-2xl"> Connect with me Around the Web</h1>
+          <section className=" ml-auto mr-auto pt-3 ">
+            <h1 className="text-2xl "> Connect with me Around the Web</h1>
             <section className="flex">
               <Links />
             </section>
           </section>
 
-          <section className="max-w-sm mr-auto ml-auto pt-3">
+          <section className="mr-auto ml-auto pt-3">
             <h1 className="text-2xl"> About Me</h1>
             <h1> Designed and Developed By Kripu Khadka @ 2021.</h1>
             <h1> Feel free to copy anything that you find useful.</h1>

@@ -7,6 +7,10 @@ module.exports = {
       outline: {
         blue: "2px solid #0000ff",
       },
+      transitionProperty: {
+        height: "height",
+        spacing: "margin, padding",
+      },
     },
   },
   variants: {
