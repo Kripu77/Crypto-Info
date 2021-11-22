@@ -4,7 +4,7 @@ import Carousel from './Slider';
 const Masthead = () => {
     return (
       <div
-        className="bg-fixed text-white min-h-full bg-cover bg-no-repeat w-max-content p-6"
+        className="bg-fixed text-white min-h-full bg-cover bg-no-repeat w-max-content p-6 object-fill"
         style={{
           backgroundImage: `url(
         https://images.unsplash.com/photo-1605792657660-596af9009e82?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1402&q=80)`,

@@ -62,7 +62,7 @@ table{
     .navigationButtons{
      width: 12rem;
     }
-    .nav-hidden{
+    /* .nav-hidden{
         display: block;
     }
     .show-util{
@@ -74,5 +74,5 @@ table{
       padding-top: 4rem;
         
 
-    }
+    } */
 }

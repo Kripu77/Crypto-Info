@@ -22,42 +22,57 @@ const Nav = () => {
           </section>
           {/* hidden sm:flex space-x-7 text-lg  */}
           <section
-            className={show ? "show-util" : "hidden sm:flex space-x-7 text-lg "}
+            className={
+              show
+                ? "fixed bg-purple-500 z-10 top-0 left-0 right-0 h-screen flex justify-around transition-all sm:static sm:h-0 "
+                : "hidden top-0 -ml-96  sm:flex sm:static"
+            }
           >
-            {!currentUser && (
-              <button className="hover:text-gray-200" onClick={() => navShow()}>
-                <Link to="/"> Sign In</Link>
-              </button>
-            )}
-            {!currentUser && (
-              <button className="hover:text-gray-200" onClick={() => navShow()}>
-                <Link to="/signup"> Sign up</Link>
-              </button>
-            )}
-            {currentUser && (
-              <button className="hover:text-gray-200" onClick={()=>navShow()}>
-                <Link to="/home"> Home</Link>
-              </button>
-            )}
+            <section className="flex flex-col mt-1 m:flex-row sm:space-x-7 relative">
+              {!currentUser && (
+                <button
+                  className="hover:text-gray-200"
+                  onClick={() => navShow()}
+                >
+                  <Link to="/"> Sign In</Link>
+                </button>
+              )}
+              {!currentUser && (
+                <button
+                  className="hover:text-gray-200"
+                  onClick={() => navShow()}
+                >
+                  <Link to="/signup"> Sign up</Link>
+                </button>
+              )}
+              {currentUser && (
+                <button
+                  className="hover:text-gray-200"
+                  onClick={() => navShow()}
+                >
+                  <Link to="/home"> Home</Link>
+                </button>
+              )}
 
-            {currentUser && (
-              <button
-                className="hover:text-gray-200"
-                onClick={() => {
-                  logOut().then(() => {
-                    sessionStorage.clear();
-                    navigate("/");
-                  });
-                }}
-              >
-                Sign Out
+              {currentUser && (
+                <button
+                  className="hover:text-gray-200"
+                  onClick={() => {
+                    logOut().then(() => {
+                      sessionStorage.clear();
+                      navigate("/");
+                    });
+                  }}
+                >
+                  Sign Out
+                </button>
+              )}
+              <button className={show?"fixed right-10 top-10 sm:hidden": "hidden"} onClick={() => navShow()}>
+                <FaCross />
               </button>
-            )}
-            <button className="hidden" onClick={() => navShow()}>
-              <FaCross />
-            </button>
+            </section>
           </section>
-          <button className="hidden nav-hidden" onClick={() => navShow()}>
+          <button className="block sm:hidden" onClick={() => navShow()}>
             {" "}
             <FiAlignCenter />{" "}
           </button>

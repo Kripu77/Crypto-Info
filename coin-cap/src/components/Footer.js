@@ -9,7 +9,7 @@ const Footer = () => {
           Crypto
           <span className="text-yellow-200">Info</span>
         </h1> */}
-        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center">
+        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center ">
           <section>
             <h1 className="text-2xl"> Tech Stack Used</h1>
             <ol>
