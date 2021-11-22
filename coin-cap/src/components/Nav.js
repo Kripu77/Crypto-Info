@@ -3,6 +3,7 @@ import { ImCross } from "react-icons/im";
 import { FiAlignCenter } from "react-icons/fi";
 import { Link, useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../context/LoginInContext';
+import Logo from './Logo';
 const Nav = () => {
 
   const{currentUser, logOut, navShow, show} = useLoginContext();
@@ -11,13 +12,11 @@ const Nav = () => {
     const navigate = useNavigate();
     return (
       <nav>
-        <section className="flex justify-between p-2">
+        <section className="flex justify-between p-1">
           <section>
             <Link to="/home">
               {" "}
-              <h1 className="text-center ">
-                Crypto<span className="text-yellow-300">Info</span>
-              </h1>{" "}
+             <Logo/>
             </Link>
           </section>
           {/* hidden sm:flex space-x-7 text-lg  */}
@@ -28,14 +27,14 @@ const Nav = () => {
                 : "hidden top-0 -ml-96 transition-all  sm:flex sm:static sm:h-0"
             }
           >
-            <section className="text-center sm:p-0">
+            <section className="text-center sm:p-0 ">
               {show && (
-                <h1 className="sm:hidden">
+                <h1 className="sm:hidden text-3xl">
                   {" "}
                   Crypto<span className="text-yellow-300">Info</span>
                 </h1>
               )}
-              <section className=" space-x-3 flex replace ">
+              <section className=" replace sm:space-x-2 ">
                 {!currentUser && (
                   <button
                     className="hover:text-gray-200"

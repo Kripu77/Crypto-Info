@@ -92,7 +92,7 @@ if(!authToken){
         <title> Sign In</title>
         <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
       </Helmet>
-      <section className="mt-20 ml-auto mr-auto max-w-md mb-40 ">
+      <section className="mt-20 ml-auto mr-auto max-w-md mb-40 p-4 ">
         <h1 className="text-2xl text-center"> Sign In</h1>
         <section className="ml-auto mr-auto max-w-md mb-40">
           <form className="mt-5 text-lg" onSubmit={handleSubmit}>

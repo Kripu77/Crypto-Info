@@ -56,6 +56,10 @@ table{
     width: 55rem;
     overflow-y: none;
 }
+.replace{
+    display: flex;
+    justify-content: space-between;
+}
 @media only screen and (max-width:680px) 
 {
    
@@ -66,7 +70,19 @@ table{
         display: flex;
         flex-direction: column!important;
         padding: 3rem;
+       
+    } 
+    .replace h1{
+        font-size: 3rem;
     }
+    .replace a{
+        font-size: 2rem;
+   
+    }
+    .replace button{
+        margin-top: 1rem;
+    }
+   
     /* .nav-hidden{
         display: block;
     }

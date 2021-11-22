@@ -3,13 +3,13 @@ import Links from './Links';
 
 const Footer = () => {
     return (
-      <footer className="bg-purple-600 text-white p-7  ">
+      <footer className="bg-purple-600 text-white p-7 text-sm ">
         {/* <h1 className="text-center text-2xl">
           {" "}
           Crypto
           <span className="text-yellow-200">Info</span>
         </h1> */}
-        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center space-x-1  ">
+        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center   ">
           <section className=" ml-auto mr-auto pt-3 ">
             <h1 className="text-2xl"> Tech Stack Used</h1>
             <ol>

@@ -118,7 +118,7 @@ React.useEffect(() => {
         <title> Sign Up</title>
         <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
       </Helmet>
-      <section className="ml-auto mr-auto max-w-md mb-40">
+      <section className="ml-auto mr-auto max-w-md mb-40 p-4">
         <h1 className="text-2xl text-center"> Sign Up</h1>
         <form className="mt-5 text-lg " onSubmit={handleSubmit}>
           <div className="flex flex-col ">
