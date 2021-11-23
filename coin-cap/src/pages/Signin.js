@@ -11,6 +11,32 @@ const Signin = () => {
 
   const navigate = useNavigate();
 
+  //framer motion
+
+  const animatedStyle = {
+    hidden: { opacity: 0},
+    show: {
+      opacity: 1, 
+      transition: {
+        default: { duration: 2 },
+        ease: "easeIn",
+        delay: 1,
+        type: "spring",
+        stiffness: 20,
+      },
+    },
+  };
+
+  const buttonAnimation ={
+    whileHover:{
+      scale:1.03,
+      transition:{duration:0.5}
+    },
+    whileTap:{
+      scale:0.5
+    }
+  }
+
 
   const [inputData, setInputData] = React.useState({ email: "", password: "" });
   const [loading, setLoading] = React.useState(false);
@@ -93,7 +119,15 @@ if(!authToken){
         <title> Sign In</title>
         <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
       </Helmet>
-      <section className="mt-20 ml-auto mr-auto max-w-md mb-40 p-4 ">
+      <motion.section
+        variants={animatedStyle}
+        initial="hidden"
+        animate="show"
+        
+        className="mt-20 ml-auto mr-auto max-w-md mb-40 p-4 "
+      >
+        {" "}
+        <h1 className="text-3xl text-center"> Welcome Back!</h1>
         <h1 className="text-2xl text-center"> Sign In</h1>
         <section className="ml-auto mr-auto max-w-md mb-40">
           <form className="mt-5 text-lg" onSubmit={handleSubmit}>
@@ -122,7 +156,10 @@ if(!authToken){
               ></input>
             </div>
             <div className="flex flex-col ">
-              <button
+              <motion.button
+                variants={buttonAnimation}
+                whileHover="whileHover"
+                whileTap="whileTap"
                 className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-60"
                 type="submit"
               >
@@ -142,7 +179,7 @@ if(!authToken){
                 ) : (
                   "Sign In"
                 )}
-              </button>
+              </motion.button>
               <div className="flex justify-between ">
                 <h1> Not registered yet?</h1>
                 <button className="text-black hover:text-gray-600">
@@ -155,7 +192,10 @@ if(!authToken){
             </div>
           </form>
           <div className="flex flex-col p-2  ">
-            <button
+            <motion.button
+              variants={buttonAnimation}
+              whileHover="whileHover"
+              whileTap="whileTap"
               type="click"
               className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
               onClick={() => {
@@ -188,8 +228,11 @@ if(!authToken){
             >
               {" "}
               Continue with Google
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              variants={buttonAnimation}
+              whileHover="whileHover"
+              whileTap="whileTap"
               className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
               onClick={() =>
                 github()
@@ -220,10 +263,10 @@ if(!authToken){
             >
               {" "}
               Continue with GitHub
-            </button>
+            </motion.button>
           </div>
         </section>
-      </section>
+      </motion.section>
       <Footer />
     </section>
   );

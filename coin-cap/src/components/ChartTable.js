@@ -21,7 +21,7 @@ const ChartTable = ({ id }) => {
   const chartAnimation ={
     hidden:{y:-400, opacity:0.7 },
     show:{y:0, opacity:10, transition:{
-    default:{  duration:2}, delay:1.3, type:"spring", stiffness:20
+    default:{  duration:2}, delay:0.4, type:"spring", stiffness:20
     }}
   }
 

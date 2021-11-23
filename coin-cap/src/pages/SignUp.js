@@ -5,8 +5,34 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet"
+import { motion } from "framer-motion";
 
 const SignUp = () => {
+  //framer motion
+  //framer motion
+
+  const animatedStyle = {
+    hidden: { opacity: 0, y:-100 },
+    show: {
+      opacity: 1, y:0,
+      transition: {
+        default: { duration: 2 },
+        delay: 1,
+        type: "spring",
+        stiffness: 20,
+      },
+    },
+  };
+
+  const buttonAnimation = {
+    whileHover: {
+      scale: 1.03,
+      transition: { duration: 0.3 },
+    },
+    whileTap: {
+      scale: 0.5,
+    },
+  };
   //manage state
 
   const [signUpData, setSignUpData] = React.useState({
@@ -37,8 +63,6 @@ const SignUp = () => {
     }
     //once data is added
     if (signUpData.email && signUpData.password && signUpData.confirmpassword) {
-    
-
       //check if passwords match
       if (signUpData.password !== signUpData.confirmpassword) {
         toast.error("Password doesnot match.");
@@ -102,15 +126,15 @@ const SignUp = () => {
     };
   }, [loading]);
 
-React.useEffect(() => {
-  const authToken = sessionStorage.getItem("Auth Token");
-  if (authToken) {
-    navigate("/home");
-  }
-  if (!authToken) {
-    navigate("/signup");
-  }
-}, []);
+  React.useEffect(() => {
+    const authToken = sessionStorage.getItem("Auth Token");
+    if (authToken) {
+      navigate("/home");
+    }
+    if (!authToken) {
+      navigate("/signup");
+    }
+  }, []);
   return (
     <section className="text-lg mt-20 ">
       <Helmet>
@@ -118,7 +142,16 @@ React.useEffect(() => {
         <title> Sign Up</title>
         <link rel="canonical" href="https://cryptoinfor.netlify.app/" />
       </Helmet>
-      <section className="ml-auto mr-auto max-w-md mb-40 p-4">
+      <motion.section
+        variants={animatedStyle}
+        initial="hidden"
+        animate="show"
+        exit={{ opacity: 0 }}
+        className="ml-auto mr-auto max-w-md mb-40 p-4"
+      >
+        <motion.h1 initial={{}}
+        animate={{}}
+        className="text-3xl text-center"> Welcome!</motion.h1>
         <h1 className="text-2xl text-center"> Sign Up</h1>
         <form className="mt-5 text-lg " onSubmit={handleSubmit}>
           <div className="flex flex-col ">
@@ -158,7 +191,12 @@ React.useEffect(() => {
             ></input>
           </div>
           <div className="text-center">
-            <button className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-60 transition ease-in duration-700 ...">
+            <motion.button
+              variants={buttonAnimation}
+              whileHover="whileHover"
+              whileTap="whileTap"
+              className="bg-purple-500 hover:bg-purple-600 text-white uppercase text-md mx-auto p-2 m-8 rounded text-center w-60 "
+            >
               {loading ? (
                 <svg
                   className=" animate-spin
@@ -175,7 +213,7 @@ React.useEffect(() => {
               ) : (
                 "Sign Up"
               )}
-            </button>
+            </motion.button>
 
             <div className="flex justify-between ">
               <h1> Already a user?</h1>
@@ -188,7 +226,10 @@ React.useEffect(() => {
             </div>
           </div>
           <div className="flex flex-col p-2  ">
-            <button
+            <motion.button
+              variants={buttonAnimation}
+              whileHover="whileHover"
+              whileTap="whileTap"
               type="click"
               className="bg-yellow-600 hover:bg-yellow-500 w-60 ml-auto mr-auto text-white rounded p-2"
               onClick={() => {
@@ -219,8 +260,11 @@ React.useEffect(() => {
             >
               {" "}
               Continue with Google
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              variants={buttonAnimation}
+              whileHover="whileHover"
+              whileTap="whileTap"
               className="bg-gray-600 hover:bg-gray-500 w-60 ml-auto mr-auto mt-4 text-white p-2 rounded"
               onClick={() =>
                 github()
@@ -257,10 +301,10 @@ React.useEffect(() => {
             >
               {" "}
               Continue with GitHub
-            </button>
+            </motion.button>
           </div>
         </form>
-      </section>
+      </motion.section>
       <Footer />
     </section>
   );
