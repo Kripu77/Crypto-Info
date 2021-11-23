@@ -19,9 +19,9 @@ const ChartTable = ({ id }) => {
   //framer setup alter as required
 
   const chartAnimation ={
-    hidden:{x:-1000, opacity:0.7 },
-    show:{x:0, opacity:10, transition:{
-    default:{ ease: "easeOut",duration:2}, delay:0.4, type:"spring", stiffness:20
+    hidden:{y:-400, opacity:0.7 },
+    show:{y:0, opacity:10, transition:{
+    default:{  duration:2}, delay:1.3, type:"spring", stiffness:20
     }}
   }
 
@@ -93,14 +93,15 @@ const ChartTable = ({ id }) => {
           
             return (
               <div className=" ml-auto mr-auto" key={value}>
-               
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   key={value}
                   className="bg-purple-600 hover:bg-purple-500 text-white uppercase text-md mx-auto p-2 mt-4 ml-4 rounded text-center w-40"
                   onClick={() => setDays(value)}
                 >
                   {name}
-                </button>
+                </motion.button>
               </div>
             );
           })}

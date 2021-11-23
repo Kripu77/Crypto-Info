@@ -15,6 +15,7 @@ const Footer = () => {
             <ol>
               <li> HTML5</li>
               <li> TaiwindCSS with JIT</li>
+              <li>Framer Motion</li>
               <li> React JS with Hooks</li>
               <li> Firebase For Authentication</li>
               <li>API from COINGECKO</li>

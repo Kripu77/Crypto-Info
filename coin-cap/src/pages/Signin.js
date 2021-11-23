@@ -5,6 +5,7 @@ import { useLoginContext } from "../context/LoginInContext";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet"
+import { motion } from "framer-motion";
 const Signin = () => {
   //useNavigate from react-router v6
 

@@ -9,7 +9,7 @@ const CoinMasthead = ({singleData}) => {
     show: {
       y: 0,
       opacity: 1,
-      transition: { default:{duration: 3}, delay:0.3,  type: "spring", stiffness: 10 },
+      transition: { default:{duration: 3}, delay:6,  type: "spring", stiffness: 10 },
     },
   };
     return (
@@ -20,9 +20,9 @@ const CoinMasthead = ({singleData}) => {
         className="mt-10 text-center max-w-5xl ml-auto mr-auto mb-10 text-3xl"
       >
         <motion.img
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, rotate: 360 }}
-          transition={{ duration: 1.5, delay:0.6 }}
+          initial={{ opacity: 0, x:-1000 }}
+          animate={{ opacity: 1, rotate: 360, x:0 }}
+          transition={{ duration: 1.5, delay:2.5, type:"spring", stiffness:40 }}
           src={singleData.image.large}
           className="mr-auto ml-auto"
         />

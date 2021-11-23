@@ -6,6 +6,7 @@ import CoinTable from './CoinTable';
 import Noresults from './Noresults';
 import { numberWithCommas } from './numberWithCommas';
 import SecondaryLoading from './SecondaryLoading';
+import { motion } from 'framer-motion';
 
 const Table = () => {
  
@@ -14,6 +15,15 @@ const Table = () => {
       const [search, setSearch] = React.useState('');
     const[loading, setLoading]= React.useState(true);
     const[error, setError] = React.useState(false)
+    //framer motion setup
+    const animationStyle ={
+      hidden:{y:300, opacity:0},
+      show:{y:0, opacity:1, transition:{
+        default:{duration:4}, delay:0.5, type:"spring", stifness:20
+
+      }}
+
+    }
 
     //get top 100 coins
     const getTable=()=>{
@@ -77,7 +87,7 @@ if(error){
 }
         //    const{name, id, marketcap, current_price, market_cap_change_percentage_24h } = coins
     return (
-      <main>
+      <motion.main variants={animationStyle} initial="hidden" animate="show">
         <section className="ml-auto mr-auto">
           <h1 className="text-yellow-900"> Search</h1>
 
@@ -90,7 +100,7 @@ if(error){
           ></input>
         </section>
         <CoinTable handleSearch={handleSearch} />
-      </main>
+      </motion.main>
     );
     
     

@@ -5,13 +5,13 @@ const AdditionalInfo = ({singleData}) => {
 
   //framer setup
   const animationStyle = {
-    hidden: { x: -1000, opacity: 0.7 },
+    hidden: { y: -600, opacity: 0 },
     show: {
-      x: 0,
+      y: 0,
       opacity: 10,
       transition: {
-        default: { duration: 3.8 },
-        delay: 0.2,
+        default: { duration: 2 },
+       delay:1,
         type: "spring",
         stiffness: 20,
       },
