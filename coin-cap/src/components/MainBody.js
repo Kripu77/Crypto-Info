@@ -8,7 +8,7 @@ const MainBody = () => {
   const { error } = useLoginContext();
   const animationStyle ={
     hidden:{opacity:0, x:-500},
-    show:{opacity:1, x:0, transition:{default:{duration:6}, delay:0.3, type:"spring", stifness:20}}
+    show:{opacity:1, x:0, transition:{default:{duration:4}, delay:0.3, type:"spring", stifness:10}}
   }
   return (
     <>
