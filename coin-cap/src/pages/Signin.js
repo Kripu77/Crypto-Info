@@ -14,9 +14,9 @@ const Signin = () => {
   //framer motion
 
   const animatedStyle = {
-    hidden: { opacity: 0},
+    hidden: { opacity: 0, x:-100},
     show: {
-      opacity: 1, 
+      opacity: 1, x:0,
       transition: {
         default: { duration: 2 },
         ease: "easeIn",
