@@ -1,7 +1,7 @@
 # Firebase-Authentication- 
 Two projects- 
 
--Coin Gecko which displays the complete record of all the crypto currencies available coming from the Coin Gecko API.
+-CrptoInfo web app which displays the complete record of all the crypto currencies available coming from the Coin Gecko API.
 Some key features
 1) Log In, Log Out with Google and Github Sign in/Authentication. 
 2) Complete User Validation and Authentication
