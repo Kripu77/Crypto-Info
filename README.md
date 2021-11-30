@@ -8,7 +8,8 @@ Some key features
 3) Live record display
 4) Search
 5) Indvidual coin data display with historical records integrated with react charts
-6) More Functionality adding on.
+6) Framer Motion with interactive Animation.
+7) More Functionality adding on.
 
 DEMO LINK: https://cryptoinfor.netlify.app/
 
