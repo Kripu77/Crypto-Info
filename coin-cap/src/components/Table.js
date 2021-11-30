@@ -1,10 +1,8 @@
 import axios from 'axios';
 import React from 'react'
 import { table } from '../config/api';
-import { useLoginContext } from '../context/LoginInContext'
 import CoinTable from './CoinTable';
 import Noresults from './Noresults';
-import { numberWithCommas } from './numberWithCommas';
 import SecondaryLoading from './SecondaryLoading';
 import { motion } from 'framer-motion';
 
@@ -48,27 +46,8 @@ const Table = () => {
 
     }, [])
 
-    //filter
-    // const filterData = (search)=>{
-    // if(search===''){
-    //   return tableData
-    // }
-
-    // else{
-
-
-    //     setTableData(
-    //       tableData.filter((value) => {
-    //         console.log(value.symbol);
-    //         return (
-    //           value.id.includes(search) ||
-    //           value.symbol.toLowerCase().includes(search)
-    //         );
-    //       })
-    //     );}
-      
-    // }
-
+    
+//data filtering
     const handleSearch = () => {
     
       return tableData.filter(
