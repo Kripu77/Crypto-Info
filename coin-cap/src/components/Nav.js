@@ -12,11 +12,11 @@ const Nav = () => {
     const navigate = useNavigate();
     return (
       <nav>
-        <section className="flex justify-between p-1">
+        <section className="flex justify-between p-1 max-w-screen-lg mx-auto">
           <section>
             <Link to="/home">
               {" "}
-             <Logo/>
+              <Logo />
             </Link>
           </section>
           {/* hidden sm:flex space-x-7 text-lg  */}
@@ -27,7 +27,7 @@ const Nav = () => {
                 : "hidden top-0 -ml-96 transition-all  sm:flex sm:static sm:h-0"
             }
           >
-            <section className="text-center sm:p-0 ">
+            <section className="text-center sm:p-0  ">
               {show && (
                 <h1 className="sm:hidden text-3xl">
                   {" "}
