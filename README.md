@@ -1,5 +1,3 @@
-# Firebase-Authentication- 
-Two projects- 
 
 -CrptoInfo web app which displays the complete record of all the crypto currencies available coming from the Coin Gecko API.
 Some key features
@@ -14,7 +12,6 @@ Some key features
 DEMO LINK: https://cryptoinfor.netlify.app/
 
 
-Plan (Web3.js)
 
 
 
