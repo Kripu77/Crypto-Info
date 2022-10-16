@@ -5,10 +5,8 @@ import ChartTable from '../components/ChartTable';
 import Error from '../components/Error';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
-
 import SecondaryLoading from '../components/SecondaryLoading';
 import { SingleCoin } from '../config/api';
-
 import AdditionalInfo from '../components/AdditionalInfo';
 import CoinMasthead from '../components/CoinMasthead';
 import { Helmet } from "react-helmet";

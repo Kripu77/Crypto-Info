@@ -25,17 +25,17 @@ const AdditionalInfo = ({singleData}) => {
 } = market_data
     return (
       <motion.section variants={animationStyle} initial="hidden" animate="show" className="text-center text-3xl mt-10 mb-10 ">
-        <h1> Other Stats</h1>
+        <h1 className='font-mono'> Other Stats</h1>
 
-        <section className="flex justify-around text-xl p-10">
+        <section className="flex justify-around text-sm md:text-xl p-2 md:p-10">
           <div >
-            <h1 className="text-2xl"> Change in 24 hours</h1>
+            <h1 className="text-lg md:text-2xl"> Change in 24 hours</h1>
             <div className="text-gray">
               <h1> High: ${high_24h.aud} </h1>
               <h1> Low: ${low_24h.aud}</h1>
               <h1>
                 {" "}
-                Price Change: ${price_change_24h_in_currency.aud}
+                Price Change: ${price_change_24h_in_currency.aud.toString().substring(0,13)}
                 {"       "}
                 <span
                   className={
@@ -46,17 +46,19 @@ const AdditionalInfo = ({singleData}) => {
                 >
                  ( {price_change_percentage_24h_in_currency.aud > 1
                     ? `+${price_change_percentage_24h_in_currency.aud}`
-                    : `-${price_change_percentage_24h_in_currency.aud}`}
+                    : `${price_change_percentage_24h_in_currency.aud}`}
                   %)
                 </span>
               </h1>
             </div>
           </div>
           <div>
-            <h1 className='text-2xl'> Additional information</h1>
+            <h1 className='text-lg font-bold md:text-2xl whitespace-nowrap'> Additional information</h1>
+            <section>
             <h1> Developer Score: {developer_score}</h1>
             <h1> Date Founded: {genesis_date}</h1>
             <h1> Hashing Algorith : {hashing_algorithm}</h1>
+            </section>
           </div>
         </section>
       </motion.section>

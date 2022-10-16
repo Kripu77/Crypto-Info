@@ -2,6 +2,9 @@ import axios from 'axios'
 import React from 'react'
 import { numberWithCommas } from './numberWithCommas';
 import SecondaryLoading from './SecondaryLoading';
+import { commarize } from './commarize';
+
+
 const url = "https://api.coingecko.com/api/v3/global";
 const Global = () => {
     const[globalData, setGlobalData] = React.useState([])
@@ -45,7 +48,7 @@ const Global = () => {
                   >
                     <div>
                       <div>
-                        <h1> Total Cryptocurrencies</h1>
+                        <h1> Total No. of crypto-currencies</h1>
                         <p className="text-xl text-green-600">
                           {" "}
                           {numberWithCommas(data.active_cryptocurrencies)}
@@ -53,7 +56,7 @@ const Global = () => {
                         <br />
                       </div>
                       <div>
-                        <h1> Total Marekt Cap</h1>
+                        <h1> Total Market Cap</h1>
                         <p className="text-xl text-green-600">
                           {" "}
                           ${numberWithCommas(data.total_market_cap.aud)}
@@ -79,7 +82,7 @@ const Global = () => {
                           }
                         >
                           {" "}
-                          {marketPer > 1 ? `+${marketPer}` : `-${marketPer}`}%
+                          {marketPer > 1 ? `+${marketPer}` : `${marketPer}`}%
                         </p>
                       </div>
                     </div>

@@ -136,7 +136,7 @@ const SignUp = () => {
     }
   }, []);
   return (
-    <section className="text-lg mt-20 ">
+    <section className="text-lg mt-4 ">
       <Helmet>
         <meta charSet="utf-8" />
         <title> Sign Up</title>
@@ -218,7 +218,7 @@ const SignUp = () => {
             <div className="flex justify-between ">
               <h1> Already a user?</h1>
               <button className="text-black hover:text-gray-600">
-                <Link to="/"> Click here to SignIn</Link>
+                <Link to="/"> Click here to Sign In</Link>
               </button>
             </div>
             <div className=" mt-8">

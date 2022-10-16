@@ -2,7 +2,7 @@ export function commarize(min) {
   min = min || 1e3;
   // Alter numbers larger than 1k
   if (this >= min) {
-    var units = ["k", "M", "B", "T"];
+    var units = ["K", "M", "B", "T"];
 
     var order = Math.floor(Math.log(this) / Math.log(1000));
 

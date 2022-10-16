@@ -124,7 +124,7 @@ if(!authToken){
         initial="hidden"
         animate="show"
         
-        className="mt-20 ml-auto mr-auto max-w-md mb-40 p-4 "
+        className="mt-4 ml-auto mr-auto max-w-md mb-40 p-4 "
       >
         {" "}
         <h1 className="text-3xl text-center"> Welcome Back!</h1>
@@ -218,7 +218,7 @@ if(!authToken){
                       "auth/account-exists-with-different-credential"
                     ) {
                       toast.error(
-                        "You already have a different account registered with this email."
+                        "Email already in use, please login!"
                       );
                     } else {
                       toast.error("Please contact adminstrator");
@@ -246,7 +246,7 @@ if(!authToken){
                   .catch((err) => {
                     if (err.code === "auth/popup-closed-by-user") {
                       toast.error(
-                        "You closed the sigin method your preferred, please choose your prefer signin method to continue."
+                        "You closed the sigin method your preferred, please choose your prefer Sign In method to continue."
                       );
                     }
 
