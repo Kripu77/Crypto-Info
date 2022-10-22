@@ -87,7 +87,7 @@ const ChartTable = ({ id }) => {
             },
           }}
         />
-        <div className="text-center flex w-40 overflow-scroll space-x-3 mx-auto">
+        <div className=" flex flex-col md:flex-row sm:w-40 md:min-w-screen sm:overflow-scroll  ">
           
               {data.map((val) => {
             const { name, value } = val;

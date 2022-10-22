@@ -79,6 +79,7 @@ if(error){
           ></input>
         </section>
         <CoinTable handleSearch={handleSearch} />
+      
       </motion.main>
     );
     

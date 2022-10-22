@@ -48,6 +48,7 @@ const CoinTable = ({handleSearch}) => {
                         <img src={image} className="hover:shadow-2xl h-11 " />
                       </Link>
 
+
                       <div className="flex flex-col w-40">
                         <h1 className="text-2xl">{symbol}</h1>
                         <p className="text-xs text-gray-200"> {name} </p>

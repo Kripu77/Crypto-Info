@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import Signin from './pages/Signin';
 import SignUp from './pages/SignUp';
 import Error from './components/Error';
-import Footer from './components/Footer';
 import { useLoginContext } from './context/LoginInContext';
 import Loading from './components/Loading';
 import Coin from './pages/Coin';
