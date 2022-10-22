@@ -1,4 +1,4 @@
-##CryptoInfo
+## CryptoInfo
 
 
 CrptoInfo web app which displays the complete record of all the cryptocurrencies available coming from the Coin Gecko API.
@@ -15,7 +15,3 @@ Some key features
 DEMO LINK: https://cryptoinfor.netlify.app/
 
 
-
-
-
--GitHub search. 
