@@ -6,7 +6,7 @@ const Logo = () => {
       <section>
       <Link to="/home" > <h1 className="text-center text-2xl "> 
     
-          Crypto<span className="text-yellow-300">Info</span>
+          Digi-<span className="text-yellow-300">Marpha</span>
         </h1> </Link>
       </section>
     );

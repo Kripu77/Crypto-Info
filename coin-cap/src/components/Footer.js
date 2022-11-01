@@ -1,57 +1,35 @@
-import React from 'react'
-import Links from './Links';
+import React from "react";
+import Links from "./Links";
 
 const Footer = () => {
-    return (
-      <footer className="bg-purple-600 text-white p-7 text-sm ">
-        {/* <h1 className="text-center text-2xl">
-          {" "}
-          Crypto
-          <span className="text-yellow-200">Info</span>
-        </h1> */}
-        <section className="sm:flex mt-3  ml-auto mr-auto max-w-screen-2xl text-center   ">
-          <section className=" ml-auto mr-auto pt-3 ">
-            <h1 className="text-2xl"> Tech Stack Used</h1>
-            <ol>
-              <li> HTML5</li>
-              <li> TaiwindCSS with JIT</li>
-              <li>Framer Motion</li>
-              <li> React JS with Hooks</li>
-              <li> Firebase For Authentication</li>
-              <li>API from COINGECKO</li>
-            </ol>
-          </section>
-
-          <section className=" ml-auto mr-auto pt-3 ">
-            <h1 className="text-2xl "> Connect with me Around the Web</h1>
-            <section className="flex">
-              <Links />
-            </section>
-          </section>
-
-          <section className="mr-auto ml-auto pt-3">
-            <h1 className="text-2xl"> About Me</h1>
-            <h1> Designed and Developed By Kripu Khadka @ 2021.</h1>
-            <h1> Feel free to copy anything that you find useful.</h1>
-            <h2> If you require any additional help please ping me!!!!</h2>
-          </section>
+  return (
+    <footer className="bg-purple-600 text-white p-10 text-sm ">
+      <section className="block md:flex  ml-auto mr-auto max-w-screen-2xl text-center">
+        <section className=" ml-auto mr-auto  ">
+          <h1 className="text-2xl "> Find Us Around The Web</h1>
+          <Links />
         </section>
-        <section className="text-center max-w-sm ml-auto mr-auto mt-3 p-3">
+        <section className="text-center ">
           <h1 className="text-2xl">
             {" "}
-            Crypto<span className="text-yellow-200">Info</span>
+            Digi<span className="text-yellow-200">-Marpha</span>
           </h1>
-          <p className="text-sm p-3">
+          <p className="text-sm p-3 max-w-md mx-auto">
             {" "}
-            Crypto<span className="text-yellow-200 ">Info</span> is a free
-            Crypto-Currency information site created by Kripu Khadka for
-            Demonstration Purpose.
+            Digi-<span className="text-yellow-200 ">Marpha</span> is a Digital
+            wallet with a mission to revlountise the way of buying and selling
+            digital currency.
             <br />
-            @2021
+
           </p>
         </section>
-      </footer>
-    );
-}
+        <section className="mr-auto ml-auto">
+          <h1 className="text-2xl"> Location</h1>
+          <h1> Level 6, Fittz William St, Parramatta, NSW</h1>
+        </section>
+      </section>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

@@ -7,7 +7,7 @@ const Links = () => {
 
 
     return (
-      <div className="flex space-x-3 p-4 ml-auto mr-auto">
+      <div className="flex items-center justify-center space-x-3 p-4 ml-auto mr-auto">
         {linkData.map((value) => {
           const { name, url, id } = value;
           return (
