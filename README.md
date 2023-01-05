@@ -1,4 +1,4 @@
-## CryptoInfo
+## CryptoInfor
 
 
 CrptoInfo web app which displays the complete record of all the cryptocurrencies available coming from the Coin Gecko API.
