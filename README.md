@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-Find the near real time info of your fav Crypto Currency!
 
-Link: https://cryptoinfor.netlify.app/
-=======
-## CryptoInfo
 
 
 CrptoInfo web app which displays the complete record of all the cryptocurrencies available coming from the Coin Gecko API.
@@ -19,5 +14,3 @@ Some key features
 
 DEMO LINK: https://cryptoinfor.netlify.app/
 
-
->>>>>>> parent of c1e14b4 (update)
